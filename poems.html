@@ -9,6 +9,7 @@
       font-family: 'Georgia', serif;
       background: linear-gradient(135deg, #f7e9f0, #e8f0ff);
       color: #333;
+      padding-bottom: 100px; /* space for bottom button */
     }
 
     header {
@@ -18,12 +19,11 @@
 
     header h1 {
       font-size: 2.2em;
-      margin-bottom: 10px;
     }
 
     .poem-section {
       max-width: 900px;
-      margin: 0 auto;
+      margin: auto;
       padding: 20px;
       text-align: center;
     }
@@ -48,7 +48,6 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       cursor: pointer;
       transition: transform 0.2s;
-      text-align: center;
       max-width: 200px;
     }
 
@@ -57,7 +56,15 @@
       background: #ffebf0;
     }
 
-    /* Poem modal */
+    /* ===== MODAL ===== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      display: none;
+      z-index: 5;
+    }
+
     .poem-box {
       position: fixed;
       top: 50%;
@@ -82,9 +89,8 @@
 
     .poem-box pre {
       white-space: pre-wrap;
-      word-wrap: break-word;
-      text-align: center;
       font-family: 'Georgia', serif;
+      text-align: center;
     }
 
     .close-btn {
@@ -94,20 +100,24 @@
       background: #ffb6c1;
       border: none;
       border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-      font-weight: bold;
+      width: 32px;
+      height: 32px;
       font-size: 1.1em;
-      line-height: 1;
+      cursor: pointer;
     }
 
-    .overlay {
+    /* ===== DONE BUTTON ===== */
+    .done-btn {
       position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.3);
-      display: none;
-      z-index: 5;
+      bottom: 20px;
+      right: 30px;
+      padding: 12px 28px;
+      border-radius: 25px;
+      border: none;
+      background: #ffb6c1;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
   </style>
 </head>
@@ -127,7 +137,7 @@
   <ul class="poem-list" id="englishList"></ul>
 </div>
 
-<!-- Poem modal -->
+<!-- MODAL -->
 <div class="overlay" id="overlay"></div>
 <div class="poem-box" id="poemBox">
   <button class="close-btn" onclick="closePoem()">×</button>
@@ -135,7 +145,12 @@
   <pre id="poemContent"></pre>
 </div>
 
-<script>
+<!-- DONE BUTTON -->
+<button class="done-btn" onclick="goToEnding()">
+  Done Viewing Everything →
+</button>
+
+<script
   // ===== PLACEHOLDER POEMS =====
   const tagalogPoems = [
     { title: "Tula 1", content: "Nilalaman ng Tula 1..." },
@@ -410,17 +425,17 @@ Yours will always be my favorite hello.`
     }
   ];
 
-  const poemBox = document.getElementById("poemBox");
+    const poemBox = document.getElementById("poemBox");
   const overlay = document.getElementById("overlay");
   const poemTitle = document.getElementById("poemTitle");
   const poemContent = document.getElementById("poemContent");
 
-  function buildPoemList(poems, containerId) {
-    const list = document.getElementById(containerId);
-    poems.forEach(poem => {
+  function buildList(poems, id) {
+    const list = document.getElementById(id);
+    poems.forEach(p => {
       const li = document.createElement("li");
-      li.innerText = poem.title;
-      li.onclick = () => openPoem(poem);
+      li.innerText = p.title;
+      li.onclick = () => openPoem(p);
       list.appendChild(li);
     });
   }
@@ -437,10 +452,14 @@ Yours will always be my favorite hello.`
     overlay.style.display = "none";
   }
 
+  function goToEnding() {
+    window.location.href = "ending.html";
+  }
+
   overlay.onclick = closePoem;
 
-  buildPoemList(tagalogPoems, "tagalogList");
-  buildPoemList(englishPoems, "englishList");
+  buildList(tagalogPoems, "tagalogList");
+  buildList(englishPoems, "englishList");
 </script>
 
 </body>
