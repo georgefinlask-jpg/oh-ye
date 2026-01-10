@@ -25,7 +25,7 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 20px;
-      text-align: center; /* center poem list section titles */
+      text-align: center;
     }
 
     .poem-section h2 {
@@ -38,7 +38,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 15px;
-      justify-items: center; /* center the bubbles/grid items */
+      justify-items: center;
     }
 
     .poem-list li {
@@ -48,7 +48,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       cursor: pointer;
       transition: transform 0.2s;
-      text-align: center; /* center text in the list item */
+      text-align: center;
       max-width: 200px;
     }
 
@@ -72,7 +72,7 @@
       overflow-y: auto;
       display: none;
       z-index: 10;
-      text-align: center; /* center title and content */
+      text-align: center;
     }
 
     .poem-box h3 {
@@ -83,7 +83,7 @@
     .poem-box pre {
       white-space: pre-wrap;
       word-wrap: break-word;
-      text-align: center; /* center content */
+      text-align: center;
       font-family: 'Georgia', serif;
     }
 
@@ -171,7 +171,7 @@
 
   function buildPoemList(poems, containerId) {
     const list = document.getElementById(containerId);
-    poems.forEach((poem) => {
+    poems.forEach(poem => {
       const li = document.createElement("li");
       li.innerText = poem.title;
       li.onclick = () => openPoem(poem);
