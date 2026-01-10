@@ -1,169 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Poems</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: linear-gradient(135deg, #f7e9f0, #e8f0ff);
-      color: #333;
-      padding-bottom: 100px; /* space for bottom button */
-    }
+<meta charset="UTF-8">
+<title>Poems</title>
 
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #f7e9f0, #e8f0ff);
+    color: #333;
+    overflow-x: hidden;
+  }
 
-    header h1 {
-      font-size: 2.2em;
-    }
+  h1 {
+    text-align: center;
+    margin-top: 40px;
+  }
 
-    .poem-section {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      text-align: center;
-    }
+  .section {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
 
-    .poem-section h2 {
-      margin-bottom: 15px;
-    }
+  .poem-title {
+    background: #fff;
+    margin: 12px auto;
+    padding: 14px 24px;
+    border-radius: 30px;
+    width: fit-content;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    transition: transform 0.2s;
+  }
 
-    .poem-list {
-      list-style: none;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-      justify-items: center;
-    }
+  .poem-title:hover {
+    transform: scale(1.05);
+  }
 
-    .poem-list li {
-      background: #fff;
-      padding: 15px 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform 0.2s;
-      max-width: 200px;
-    }
+  /* ===== MODAL ===== */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
 
-    .poem-list li:hover {
-      transform: scale(1.05);
-      background: #ffebf0;
-    }
+  .modal {
+    background: #fff;
+    padding: 40px 30px;
+    max-width: 720px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 20px;
+    text-align: center;
+    white-space: pre-wrap;
+    line-height: 1.7;
+    position: relative;
+  }
 
-    /* ===== MODAL ===== */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.3);
-      display: none;
-      z-index: 5;
-    }
+  .close-btn {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 22px;
+    cursor: pointer;
+  }
 
-    .poem-box {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #fff;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      max-width: 700px;
-      max-height: 80vh;
-      overflow-y: auto;
-      display: none;
-      z-index: 10;
-      text-align: center;
-    }
+  /* ===== DONE BUTTON ===== */
+  .done-btn {
+    display: block;
+    margin: 70px auto 90px;
+    padding: 14px 30px;
+    border-radius: 30px;
+    border: none;
+    background: #ffb6c1;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+  }
 
-    .poem-box h3 {
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
+  /* ===== FLOATING BACKGROUND ===== */
+  .floating-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
 
-    .poem-box pre {
-      white-space: pre-wrap;
-      font-family: 'Georgia', serif;
-      text-align: center;
-    }
+  .float {
+    position: absolute;
+    font-size: 18px;
+    opacity: 0.12;
+    animation: floatUp linear infinite;
+  }
 
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #ffb6c1;
-      border: none;
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      font-size: 1.1em;
-      cursor: pointer;
-    }
-
-    /* ===== DONE BUTTON ===== */
-    .done-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 30px;
-      padding: 12px 28px;
-      border-radius: 25px;
-      border: none;
-      background: #ffb6c1;
-      font-size: 1em;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-  </style>
+  @keyframes floatUp {
+    from { transform: translateY(110vh); }
+    to { transform: translateY(-20vh); }
+  }
+</style>
 </head>
+
 <body>
 
-<header>
-  <h1>Poems</h1>
-</header>
+<div class="floating-bg" id="floatingBg"></div>
 
-<div class="poem-section">
-  <h2>Tagalog Poems</h2>
-  <ul class="poem-list" id="tagalogList"></ul>
+<h1>Poems</h1>
+
+<div class="section">
+  <h2>Tagalog</h2>
+  <div id="tagalogList"></div>
 </div>
 
-<div class="poem-section">
-  <h2>English Poems</h2>
-  <ul class="poem-list" id="englishList"></ul>
+<div class="section">
+  <h2>English</h2>
+  <div id="englishList"></div>
 </div>
 
-<!-- MODAL -->
-<div class="overlay" id="overlay"></div>
-<div class="poem-box" id="poemBox">
-  <button class="close-btn" onclick="closePoem()">×</button>
-  <h3 id="poemTitle"></h3>
-  <pre id="poemContent"></pre>
-</div>
-
-<!-- DONE BUTTON -->
 <button class="done-btn" onclick="goToEnding()">
   Done Viewing Everything →
 </button>
 
-<script
-  // ===== PLACEHOLDER POEMS =====
-  const tagalogPoems = [
-    { title: "Tula 1", content: "Nilalaman ng Tula 1..." },
-    { title: "Tula 2", content: "Nilalaman ng Tula 2..." },
-    { title: "Tula 3", content: "Nilalaman ng Tula 3..." },
-    { title: "Tula 4", content: "Nilalaman ng Tula 4..." },
-    { title: "Tula 5", content: "Nilalaman ng Tula 5..." },
-    { title: "Tula 6", content: "Nilalaman ng Tula 6..." },
-    { title: "Tula 7", content: "Nilalaman ng Tula 7..." },
-    { title: "Tula 8", content: "Nilalaman ng Tula 8..." },
-    { title: "Tula 9", content: "Nilalaman ng Tula 9..." },
-    { title: "Tula 10", content: "Nilalaman ng Tula 10..." }
-  ];
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="close-btn" onclick="closePoem()">✕</div>
+    <h2 id="poemTitle"></h2>
+    <div id="poemContent"></div>
+  </div>
+</div>
+
+<script>
+/* ===== POEMS DATA ===== */
+
+const tagalogPoems = [
+  { title: "Poem 1", content: "Paste your Tagalog poem here." },
+  { title: "Poem 2", content: "Paste your Tagalog poem here." },
+  { title: "Poem 3", content: "Paste your Tagalog poem here." },
+  { title: "Poem 4", content: "Paste your Tagalog poem here." },
+  { title: "Poem 5", content: "Paste your Tagalog poem here." },
+  { title: "Poem 6", content: "Paste your Tagalog poem here." },
+  { title: "Poem 7", content: "Paste your Tagalog poem here." },
+  { title: "Poem 8", content: "Paste your Tagalog poem here." },
+  { title: "Poem 9", content: "Paste your Tagalog poem here." },
+  { title: "Poem 10", content: "Paste your Tagalog poem here." }
+];
 
   const englishPoems = [
     {
@@ -201,7 +191,39 @@ I feel your heartbeat always there.
 No treasure compares, no gold could shine,
 Like the quiet magic of calling you mine.
 Forever isn’t long enough to show,
-How much my heart loves you, you know.`
+How much my heart loves you, you know.
+
+I find my peace in the way you stay,
+In simple moments, day by day.
+You turn the ordinary into something true,
+Just by being you, just by being you.
+
+When the world feels loud and pulls me away,
+Your presence brings me back to okay.
+You ground my thoughts, you calm my mind,
+A steady comfort I didn’t know I’d find.
+
+Every step feels lighter when you’re near,
+Every doubt fades, every fear.
+You don’t have to try or prove a thing,
+Your love is enough, it’s everything.
+
+In crowded rooms or quiet space,
+I search for you, your familiar face.
+Because wherever you happen to be,
+That’s where home feels like to me.
+
+I don’t need walls or perfect plans,
+Just your warmth and your steady hands.
+Wherever life decides to roam,
+If I’m with you, I’m already home.
+
+Outro:
+
+So if the world should change its tone,
+And paths feel unsure, unknown,
+I’ll follow the light I’ve always known—
+Home has always been your smile alone.`
     },
     { 
       title: "Sun on Rainy Days", 
@@ -264,10 +286,10 @@ Some days may start with sorrow’s haze,
 Yet you arrive, my sun on rainy days.
 A quiet presence, soft and true,
 I feel the world is bright with you.`
-    },
-    { 
-      title: "In Quiet Moments",
-      content: `In quiet moments, when the world feels slow,
+},
+{ 
+title: "In Quiet Moments",
+content: `In quiet moments, when the world feels slow,
 When voices fade and lights hang low,
 I find my thoughts drifting to you,
 To all the small things you say and do.
@@ -423,43 +445,51 @@ Yours will always be my favorite hello.`
       title: "Poem 10", 
       content: ``
     }
-  ];
+ /* ===== BUILD LISTS ===== */
+function buildList(list, containerId) {
+  const container = document.getElementById(containerId);
+  list.forEach(poem => {
+    const div = document.createElement("div");
+    div.className = "poem-title";
+    div.innerText = poem.title;
+    div.onclick = () => openPoem(poem.title, poem.content);
+    container.appendChild(div);
+  });
+}
 
-    const poemBox = document.getElementById("poemBox");
-  const overlay = document.getElementById("overlay");
-  const poemTitle = document.getElementById("poemTitle");
-  const poemContent = document.getElementById("poemContent");
+buildList(tagalogPoems, "tagalogList");
+buildList(englishPoems, "englishList");
 
-  function buildList(poems, id) {
-    const list = document.getElementById(id);
-    poems.forEach(p => {
-      const li = document.createElement("li");
-      li.innerText = p.title;
-      li.onclick = () => openPoem(p);
-      list.appendChild(li);
-    });
-  }
+/* ===== MODAL ===== */
+function openPoem(title, content) {
+  document.getElementById("poemTitle").innerText = title;
+  document.getElementById("poemContent").innerText = content;
+  document.getElementById("overlay").style.display = "flex";
+}
 
-  function openPoem(poem) {
-    poemTitle.innerText = poem.title;
-    poemContent.innerText = poem.content;
-    poemBox.style.display = "block";
-    overlay.style.display = "block";
-  }
+function closePoem() {
+  document.getElementById("overlay").style.display = "none";
+}
 
-  function closePoem() {
-    poemBox.style.display = "none";
-    overlay.style.display = "none";
-  }
+/* ===== NAV ===== */
+function goToEnding() {
+  window.location.href = "ending.html";
+}
 
-  function goToEnding() {
-    window.location.href = "ending.html";
-  }
+/* ===== FLOATING BG ===== */
+const bg = document.getElementById("floatingBg");
+const symbols = ["🐱","💖","ILY","LOVE","MWAA"];
 
-  overlay.onclick = closePoem;
-
-  buildList(tagalogPoems, "tagalogList");
-  buildList(englishPoems, "englishList");
+for (let i = 0; i < 120; i++) {
+  const d = document.createElement("div");
+  d.className = "float";
+  d.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+  d.style.left = Math.random() * 100 + "%";
+  d.style.fontSize = 12 + Math.random() * 20 + "px";
+  d.style.animationDuration = 15 + Math.random() * 20 + "s";
+  d.style.top = Math.random() * 100 + "vh";
+  bg.appendChild(d);
+}
 </script>
 
 </body>
