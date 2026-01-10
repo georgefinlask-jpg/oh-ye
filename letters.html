@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Letters I Didn't Give, Compiled</title>
+
+  <style>
+    /* ===== BASE ===== */
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #f7e9f0, #e8f0ff);
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+
+    header button {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 25px;
+      background: #ffb6c1;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    /* ===== FLOATING BACKGROUND ===== */
+    .floating-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .float {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0.15;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(110vh) translateX(0); }
+      to { transform: translateY(-20vh) translateX(30px); }
+    }
+
+    /* ===== CONTENT ===== */
+    .container {
+      display: none;
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .bubble-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .bubble {
+      background: #ffffff;
+      border-radius: 50%;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+
+    .bubble:hover {
+      transform: scale(1.08);
+    }
+
+    .letter-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      line-height: 1.7;
+      white-space: pre-wrap;
+      max-height: 60vh;
+      overflow-y: auto;
+      position: relative;
+      margin-bottom: 120px; /* space for bottom nav */
+    }
+
+    /* ===== FIXED BOTTOM NAV ===== */
+    .bottom-nav {
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px;
+      z-index: 3;
+    }
+
+    .bottom-nav button {
+      padding: 12px 26px;
+      border-radius: 25px;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    #prevBtn {
+      background: #dcdcff;
+    }
+
+    #prevBtn:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    #nextLetterBtn {
+      background: #ffb6c1;
+      display: none;
+    }
+
+    /* ===== POEMS BUTTON ===== */
+    .poems-arrow {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      font-size: 1.1em;
+      background: #ffd1dc;
+      padding: 12px 18px;
+      border-radius: 30px;
+      cursor: default; /* initially not clickable */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 2;
+      opacity: 0.4; /* semi-transparent until unlocked */
+      transition: opacity 0.3s;
+    }
+
+    .poems-arrow.unlocked {
+      cursor: pointer;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 🌸 FLOATING EMOJIS & TEXT BACKGROUND -->
+<div class="floating-bg" id="floatingBg"></div>
+
+<header>
+  <h1>Letters I Didn't Give, Compiled</h1>
+  <button onclick="openLetters()">View Letters</button>
+</header>
+
+<div class="container" id="lettersSection">
+  <div class="bubble-grid" id="bubbleGrid"></div>
+
+  <div class="letter-box" id="letterBox"></div>
+
+  <div class="bottom-nav">
+    <button id="prevBtn" onclick="prevLetter()">← Previous</button>
+    <button id="nextLetterBtn" onclick="nextLetter()">Next →</button>
+  </div>
+</div>
+
+<div class="poems-arrow" id="poemsArrow">→ View Poems</div>
+
+<script>
+  const letters = [
+`Letter #1
+The day we met and my first impressions o((>ω< ))o
+
+I still remember how we first met, and honestly, it’s funny looking back at it now (not in a bad way, omkiee?).
+
+During EDGE, I didn’t like you at first. (At first lang pod, karon kay more than like naman, HAHA.) Mostly because my friend didn’t like you, and I just went along with that. I never thought we’d end up being friends, ESPECIALLYY not the way we are now. Back then, you were just someone I didn’t pay much attention to. 🤯
+
+Then the first week of classes happened. Ma’am Pat changed the seating arrangement, and I was placed on the 3rd row, 2nd column from the right. You were on my left. At first, I was ulaw to talk to you. I didn’t know what to say, and I wasn’t even sure I wanted to talk. My first impression of you was that you were smart and loud, please don’t get offended, first impression lang gyud nako back then.
+
+But then you started talking to me. And we talked a lot, like, ALLAT. OMD AHAHA. Without me realizing it, you became my first friend in Pisay. You were there when I didn’t understand the lessons, when I doubted myself, and when I needed someone to explain things patiently. You never made me feel stupid or small. You just helped. :3
+
+That’s when my impression of you started to change. I began to see you as kind, humble, and genuine. Good thoughts about you slowly replaced the old ones jdasdafeih. And somewhere along the way, very gradually, I started catching feelings. I didn’t expect it, but it happened. 🤯😛
+
+It wasn’t anything grand or dramatic. It was your personality. The way you made me feel comfortable. The way I could tell you things without fear of being judged. You became someone I felt safe with, someone I trusted, someone who made things feel lighter just by being there. And honestly, we’re so ka-vibeee, like on the same freakuency, (we were both a bit freaky back then, HAHA.) being around you just clicks, everything fits perfectly. :>
+
+And now, thinking about how it all started, I can’t help but smile. From disliking you, to sitting beside you, to calling you my first friend, and then something more. I guess life really has its own way of surprising us. 😸😺`,
+`Letter #2
+Why I Chose You
+
+I didn’t want to be in a relationship ever again. Not for a short while, not for a long while, not casually, and not seriously. I had been through experiences before that left me drained and hesitant. I was afraid that if I let myself love again, I might end up hurting myself, repeating past mistakes that I had struggled to move on from.
+
+Yet, when I met you, something changed, yie haha. There was a subtle pull I couldn’t ignore, a feeling I hadn’t experienced in a long time. I didn’t immediately understand it, and perhaps I still can’t fully explain it, but it was strong enough to make me notice you in a way I hadn’t noticed anyone else.
+
+At first, it was small things that caught my attention. The way you carried yourself, your natural confidence, and the way you engaged with others around you. Even your laughter had a way of drawing me in. Something about your energy felt genuine, comforting, and unexpectedly uplifting. :3
+
+I soon realized that it was not just your presence, but the way you made me feel comfortable. I could be myself around you, without masks, without pretense. I could share my thoughts, worries, and even my insecurities, and I never felt judged. That sense of emotional safety is really rare, and it made me begin to trust you in ways I had not trusted anyone in a long time.
+
+Your personality is unique and multifaceted. You're at once kind and thoughtful, funny and expressive, serious and reflective. Being around you, I began to appreciate these qualities and how naturally they fit together. It wasn't overwhelming, nor was it flashy, it was simply genuine, and it resonated with me deeplyyy.
+
+Another reason I chose you is the connection we share. It’s hard to describe, but it's as if we operate on the same wavelength. We understand each other without much effort, sometimes even without words. That sense of alignment, of shared perspective, is INCREDIBLY rare, and it made me feel that being with you would be effortless in the most meaningful way.
+
+There is also the thoughtfulness you show in the little things. The way you notice small details about people, the way you offer help without expecting anything in return, and the way you respond thoughtfully to what I say; all of this revealed to me a depth of character that I deeply admire.
+
+I cannot overstate how safe I feel with you, both emotionally and mentally. I can express my thoughts freely, my doubts, and even my irrational fears, and still feel accepted. That kind of acceptance is not something I give lightly, and it speaks volumes about your empathy and understanding. 😸
+
+Your presence has inspired me to be more patient, more reflective, and more considerate, not because you demand it, but simply because your example encourages it. You have this subtle influence that motivates me to be a better version of myself, without pressure or expectation.
+
+It is also the combination of all these qualities that makes you unforgettable. Your kindness, your humor, your attentiveness, your reliability, and the way you make everything feel lighter when you're around; all of these contribute to why I chose you :3.
+
+Choosing you was not about a single moment, a single gesture, or a single quality. It was about the sum of everything I have observed, felt, and appreciated over time. It is about how your personality, your energy, and your presence align with who I am and what I value in a connection.
+
+I chose you because being with you feels natural. It feels like an alignment of paths that were meant to intersect, something that I had not expected to find again. It's a choice that's both reasoned and instinctive, thoughtful yet undeniable.
+
+I chose you because, despite my fears and hesitations, my heart recognized something in you that it hadn't recognized before. A sense of safety, comfort, and belonging that I had been longing for a long time without realizing it.
+
+Ultimately, I chose you because you make life feel lighter and brighter simply by being yourself :). You have a way of making the ordinary extraordinary, the mundane memorable, and the difficult bearable. Being around you reminds me that connection, trust, and genuine care are still possible.
+
+So yes, I chose you, not lightly, not impulsively, and not without thought. I chose you for the way you make me feel, for the way we connect, and for the person you are. And every day, as I reflect on it, I am grateful that I did. o((>ω< ))o`,
+`Letter #3
+Little Things You Do
+
+It’s amazing how the little things you do mean so much. Things that might seem ordinary to anyone else, but sa ako, they’re everything. Like the way you approach me just to say hi, even when busy or tired ka. It’s such a simple gesture, but it makes me feel seen and remembered, and yes, it makes my day. 
+
+I love how you check up on me, even for the smallest reasons. When you notice I’m quiet or a little off, and you ask if I’m okay, it feels like you genuinely care. It’s not forced, not an obligation, it’s you being you, noticing me, and that means more than I can explain.
+
+Then there’s the way you always think of little comforts. Giving me snacks or water, or reminding me to eat, drink, or take care of myself. It’s such a simple thing, but it tells me that you pay attention to me, that you care enough to act, and that's just so really, really sweet of you.
+
+And it’s not just the gestures, it’s the thought behind them. Helping me carry stuff when my hands are full, assisting me with small tasks, or even just being around to help me navigate daily things, it makes me feel supported in ways I didn’t even realize I needed. You make the little challenges feel lighter, simply by being there.
+
+There’s also your lambing side, the affectionate, playful, and loving way you express yourself. When you’re sweet, teasing, or just being gentle with me, I can’t help but smile. It’s the kind of warmth that makes me feel safe, happy, and cared for, all at once.
+
+Even when I try to brush it off or convince myself it’s nothing, I catch myself remembering these moments, the small acts of kindness, the gentle touches, the laughs we share. They’re not just fleeting moments; they’re memories that linger with me.
+
+I notice the patterns, too. How you do these things naturally, without expecting anything in return. You don’t have to be thoughtful, but you are, every time. That authenticity makes it all the more special. It shows me the kind of person you are; kind, considerate, loving, and genuine.
+
+One of the things that amazes me the most is the way you actively want to be better for us. Everything you do, every effort you make, it’s because you believe I deserve it. You don’t just act out of habit or expectation; you act because you care about me, and that thoughtfulness makes me melts every time.
+
+The little things also show just how well we click. The way you seem to know exactly when I need a joke, some space, or just someone to quietly be there with me. Being around you feels effortless, like we just understand each other without trying, and it’s a feeling I can’t quite put into words.
+
+It’s also how you make the ordinary feel extraordinary. Something as simple as sharing a snack, walking together, or chatting about random stuff suddenly becomes special kay it’s with you. Every small moment carries weight, warmth, and meaning for me :3.
+
+Even the way you support me emotionally stands out. When I doubt myself or feel confused, you’re patient. You listen, encourage, and remind me of my worth without making me feel pressured. Your support isn’t loud or dramatic, it’s quiet, consistent, and incredibly grounding.
+
+And then there are the unspoken things, the tiny gestures that I might not mention but notice anyway. A glance, a smile, the way you remember a small preference I mentioned once, or how you make me laugh even on my worst days. It all adds up, building this undeniable feeling that you care more than you realize.
+
+It’s these little things, small, thoughtful, genuine, that slowly made me realize how much I value you. How much I cherish having you around. How much I fall, bit by bit, for not just who you are, but the way you make me feel. And knowing that you do all of this because you want to be better for us, because you believe I deserve it, it hits differently.
+
+Honestly, I think it’s these moments, every laugh, every gesture, every act of care, that make me fall for you over and over. Every little thing you do is a reflection of who you are, and why I love being with you. And I hope you know na it doesn’t go unnoticed. Every single thing you do is appreciated, treasured, and remembered.`,
+`Letter #4
+On Your Tough Days
+
+I know that even the strongest people have tough days. Even you.
+
+On those days, I notice. You talk less than usual, your energy feels low, and I can see the sadness in your eyes. I notice even when you try to hide it.
+
+I know that some of what you carry comes from things at home, things you can’t tell me, things you have to handle alone. I see it, even when you don’t say anything.
+
+It’s okay to feel tired or overwhelmed. It doesn’t make you weak. It makes you human.
+
+You don’t always have to carry everything by yourself. It’s okay to lean on someone who cares.
+
+I want to be here for you, not to solve everything, but to remind you that you’re not alone. That someone is rooting for you, always.
+
+Sometimes, it’s enough to just sit quietly with you, to let you know I’m here. To offer my presence without words, without pressure.
+
+Even when you try to stay strong for others, I notice the effort you make. I notice how much you still care, how you still try, even when it’s hard.
+
+It’s okay to feel sad, to have moments where you feel down. Those feelings are valid. They don’t define you, they’re just part of your journey :>.
+
+I hope you remember that every small step you take, even on the hardest days, is progress. Every time you keep going is proof of your strength.
+
+I notice the little things, too, the way you push yourself, the quiet moments when you keep your head up, the small ways you try to take care of yourself. It’s inspiring.
+
+Even when you don’t talk about what’s on your mind, I want you to know I see you. I notice the weight you carry, and I care about it deeply.
+
+On your tough days, it’s okay to rest, to pause, and to take things slowly. You don’t always have to have all the answers.
+
+I hope you let yourself feel, let yourself breathe, and let yourself heal. I’ll be here through it allll, listening, supporting, or just being present.
+
+Because even on the hardest days, you are strong, capable, and loved. You’re doing your best, and that is enough. And I’ll always be here to remind you of that. Ψ(￣∀￣)Ψ`,
+`Letter #5
+On Your Bright Days
+
+On your bright days, I notice how alive you are. Your energy fills the room, and it’s impossible not to smile when I see you genuinely happy. The way you carry yourself, light-hearted yet confident, makes everything around you feel lighter too :>.
+
+I’m sooo proud of how hard you try every day, even when things get tough. Your effort, consistency, and determination never go unnoticed. Watching you push through challenges inspires me more than I can express. It reminds me that perseverance is something truly admirable.
+
+You’re amazing at academics, and I can see how much work you put into everything you do. Your dedication shows not just in your grades, but in the way you approach learning and growth. Seeing your successes makes me believe even more in your potential. You motivate me to aim higher too, just by being yourself.
+
+Your family clearly loves and values you, and I understand why, they’re lucky to have someone so thoughtful, capable, and caring. That love and support shines through in everything you do. It makes me admire the bond you share with them. Knowing they see your worth as much as I do is comforting and heartwarming.
+
+Even when you’re at your happiest, I notice the way you care for those around you. The smiles you share, the attention you give, the way you lift others effortlessly, it’s remarkable. You make people feel valued without trying, just by being kind and present. That thoughtfulness is one of the many reasons I admire you.
+
+You have a quiet confidence that doesn’t need to show off. It’s calm, genuine, and inspiring. People naturally trust and respect you because of it. Your presence reassures those around you, making everything feel steadier and warmer.
+
+Your joy is contagious. When you’re laughing, joking, or genuinely enjoying something, it spreads to anyone nearby, you might not notice it, but I do. Ordinary moments suddenly feel special simply because you’re part of them. Your energy reminds me how much happiness can impact people quietly but powerfully.
+
+I admire your character; your kindness, humility, and thoughtfulness. You do the right thing not for recognition, but because it’s simply who you are. That integrity makes me proud to know you. It’s inspiring to see someone live with such balance and purpose.
+
+I hope you feel proud of yourself too. Your wins, big or small, are proof of your dedication and effort. Every goal you reach, every challenge you overcome, deserves celebration. You should never doubt how capable and resilient you are.
+
+I notice the way you balance things like; school, responsibilities, family, and relationships, while still being someone others can rely on. That’s not easy, yet you make it seem natural. Your strength and composure inspire me to handle my own life with more grace. You’re a reminder that balance is possible even under pressure :3.
+
+Seeing you grow, learn, and push yourself to be better is one of the most uplifting things. You’re constantly becoming an even stronger, more inspiring person. That growth, both seen and unseen, is something to be proud of. I feel lucky to witness it every day.
+
+I admire how you remain true to yourself while striving to improve. That balance between authenticity and ambition is rare. It’s one of the things that makes you uniquely you. And it’s one of the many reasons I feel drawn to you.
+
+Your happiness makes me happy too. Every laugh, every smile, every small moment of joy reminds me how lucky I am to have you in my life. Seeing you shine encourages me to cherish the good moments as much as I can. You make life feel brighter just by being in it.
+
+I hope you never underestimate yourself. You’re more capable than you realize, and the dedication, growth, and effort you put into everything is something to truly be proud of. You deserve every bit of recognition, love, and happiness that comes your way.
+
+Even in the simplest moments, your effort, your care, and your heart turn them into something meaningful. The way you live, care, and love makes life feel richer and fuller. That’s why I treasure your bright days soo muchh.
+
+Through it all, I want you to know: I see you, I appreciate you, and I’m proud of you, not just for what you do, but for who you are. Your presence, your kindness, and your light make such a difference, and I’ll always celebrate that.`,
+`Letter #6 
+What You’ve Taught Me
+
+Life with you has taught me that learning isn’t only from books or school. It’s in the quiet moments, the conversations we share, and the way you make me feel seen. I’ve realized that lessons come in many forms, and sometimes the most important ones are about myself. Being around you has opened my eyes to that.
+
+I’ve realized that I’m easy to love, and that someone can care for me genuinely, without conditions. You’ve shown me that love can be simple, steady, and sincere. Accepting care and affection doesn’t make me weak, it makes me human. I finally see how worth it it is to let someone in.
+
+Seeing myself through your eyes has given me a new perspective. I notice my strengths and flaws in a gentler and kinder light. It helps me reflect on my choices and feelings without being harsh. You’ve helped me grow in self-awareness in a way I didn’t expect.
+
+I’ve learned that different perspectives really matter, just by watching how you see life. Not every problem has one right answer, and not every opinion is final. Because of you, I try to be more understanding and seeing things from other people’s point of view has always been a part of me, but you’ve helped me do it more gently and thoughtfully.
+
+Patience has become clearer to me since I met you. It’s okay to take my time, to make mistakes, and to stumble without fear. Growth isn’t instant, and that’s perfectly normal. Your example reminds me that persistence matters more than perfection.
+
+Supporting someone doesn’t mean changing them. Encouragement, listening, and gentle guidance can make a bigger impact than force or pressure. I’ve learned that helping others means lifting them up while letting them remain themselves. That’s a lesson I’ll carry forever.
+
+Love can be found in the little things, and I see it in everything you do. Whether it’s bringing snacks, checking in, or making me laugh, every small act shows you care. It’s the everyday consistency that matters more than big gestures. I’ve learned to appreciate how love can quietly shine.
+
+Celebrating small victories has become important to me. Each success, no matter how minor, deserves recognition. You’ve helped me see progress in every step forward. That mindset changes how I approach challenges and setbacks.
+
+Communication is more than just speaking; it’s also listening and understanding. I’ve learned to share my thoughts and frustrations openly. You’ve made me feel that expressing myself isn’t a burden. That has strengthened our connection.
+
+Trust doesn’t come easily, but you’ve shown me that it can grow naturally. Opening up to someone can feel safe when care is genuine. I’ve learned that trust is built through small, consistent actions. That lesson has changed how I connect with people.
+
+Effort matters more than perfection, and I’ve seen that so clearly in you. It’s not the rare or grand gestures that stand out, but the daily acts of care, attention, and thoughtfulness you put into everything you do. I notice the little things; the way you remember small details, check in, or quietly support those around you, and I truly cherish each one. Your consistency and sincerity show me how meaningful love and care can be in the everyday.
+
+Life can be viewed more positively, and you’ve helped me see that. Small moments, challenges, and ordinary days all carry meaning if approached with thoughtfulness. I feel more empathetic and hopeful because of your example. It changes the way I live each day.
+
+Being with you has taught me how important it is to give attention to the people we care about. I notice the little ways you show love, and it makes me want to treasure every moment we share even more. Your support, thoughtfulness, and care make everything between us feel deeper and more meaningful.
+
+Most of all, you’ve shown me that love doesn’t have to be complicated to be real. With you, it’s simple, genuine, and fulfilling. Letting you care for me doesn’t make me weak, it makes me feel safe, seen, and loved in a way I never imagined. Being with you has made vulnerability feel beautiful, and I will always be grateful for that.`,
+`Letter #7
+Why I Feel at Home With You
+
+I feel at home with you because being with you never feels forced. I don’t have to pretend, impress, or constantly explain myself. I can just exist as I am, and that alone makes me feel safe.
+
+There’s comfort in the way you listen. You don’t rush me, don’t judge my thoughts, and don’t make me feel small for feeling the way I do. Even in silence, I feel understood.
+
+With you, my guard comes down naturally. I don’t feel the need to overthink my words or hide parts of myself. You accept me in moments when I’m loud, quiet, emotional, or unsure, and that acceptance means everything to me.
+
+You make ordinary moments feel peaceful. Whether we’re talking, laughing, or just sitting together, there’s a sense of calm I don’t find anywhere else. It’s the kind of calm that makes me feel grounded.
+
+I feel at home with you because you make space for my emotions. You let me feel without making me feel like a burden. You remind me that my feelings matter, even when they’re messy or hard to explain.
+
+There’s something reassuring about knowing I can turn to you after a long day. Your presence feels familiar in the best way, like something I’ve known for a long time, even when everything else feels overwhelming.
+
+Being with you feels like rest. Not the kind where everything disappears, but the kind where I don’t have to carry everything alone. You make life feel lighter just by being there.
+
+I feel safe enough with you to be vulnerable. To share my worries, my dreams, and even my fears. That trust didn’t happen overnight, but it grew naturally, and now it feels steady and real.
+
+You make me feel seen. Not just in my good moments, but in my tired ones too. You notice the little changes in me, and that makes me feel cared for in a way that’s quiet but deep.
+
+Home isn’t always a place. Sometimes, it’s a person. And with you, I’ve found a sense of belonging that feels warm, steady, and real. That’s why I feel at home with you.`,
+`Letter #8
+The Moments Only We Get
+
+There are moments we share that no one else really sees. Small, quiet moments that might look ordinary from the outside, but feel special to us. They’re the kind of moments that only happen when two people understand each other deeply. Moments that are ours alone, even if they go unnoticed by everyone else.
+
+I love the way our conversations flow, even when they start as nonsense, HAHA. One minute we’re laughing at something silly, and the next we’re sharing thoughts we don’t tell anyone else. That shift, that comfort, makes me feel closer to you than words can describe.
+
+There’s a quiet comfort in our silences. No one needs to fill them, no one needs to force them. Just being together, side by side, is enough. Those moments feel like home.
+
+I notice the little things; your tiny glances, soft smiles, subtle touches, that might seem small to anyone else but mean everything to me. The way you raise an eyebrow, that playful smirk, your high-pitched voice, the way you look at me like you have your own private way of seeing me haha keleg ror, even the way you kiss my hand, it all speaks a language only we understand, louder than any words could ever be.
+
+Sometimes we’re just sitting together doing nothing, yet it feels like the world has paused for us. It’s a rare feeling, that peace and calm, when nothing else matters except this moment. And I never want to forget it.
+
+I treasure the times when one of us checks in unexpectedly. A text, a soft “are you okay?”, a small gesture of care. Those little moments remind me that even in chaos, we see each other. They remind me that I’m not alone.
+
+There are moments when we’re tired or stressed, yet we still choose to spend time together. Even when the day is heavy, being with you feels like a relief, like a soft reset. That consistency, that choice, makes me appreciate us even more.
+
+I love our playful moments, the inside jokes, the teasing, the laughter that comes so naturally. It’s in those times that I see how effortless it is for us to be ourselves. We don’t have to pretend; we just exist in our shared world.
+
+Sometimes it’s serious too. Deep conversations about hopes, fears, and dreams that we don’t share with anyone else. Those moments of honesty and vulnerability make our bond stronger.
+
+There are random moments where one glance or a smile says everything. No words are needed. You understand me, and I understand you. Those moments are ours alone, private, and priceless.
+
+I love the small routines we’ve created, the habits only we know. The way we naturally fall into rhythm, finishing each other’s sentences, understanding the unspoken cues. Those little things make me feel connected to you in a way nothing else can.
+
+Even when we’re busy or distracted, the little moments we have together feel so special. You pinching my cheek, being playful and touchy, or holding my hand for just a moment—these small things become memories I treasure deeply.
+
+Sometimes we comfort each other without words. A hug when one of us is in a bad mood, feeling gloomy, or sick, a gentle squeeze of the hand, or just sitting close together, these moments say more than anything we could ever say out loud.
+
+Sometimes we get silly together, acting goofy, laughing at nothing, just enjoying the freedom of being ourselves. There’s a joy in those moments that feels uncontainable, like the world fades and it’s only us.
+
+I love how being with you turns the usual into something I truly treasure. Long talks that stretch into laughter, our quiet moments just sharing space, or the way we can spend hours together doing nothing and it still feels special, everything becomes meaningful because of you. You make normal days feel unforgettable.
+
+These moments, small or big, quiet or loud, are ours. They’re the ones I carry in my heart, the ones I replay in my mind when we’re apart. They’re reminders that we have something rare (mythical), something real, and something only WE, yes, just us, get to share.
+
+And that’s why I cherish every single one of them. The moments we only get, with you, make life feel fuller, warmer, and infinitely better. Every day feels richer and sweeter, simply by being you.`,
+`Letter #9
+What I Admire About You
+
+What I admire most about you is the way you keep trying, even when things aren’t easy. You don’t give up when things get heavy; you push through quietly, without needing praise or attention. That kind of strength is rare, and it says so much about who you are.
+
+I admire your dedication to your responsibilities. Whether it’s academics, family, or the people you care about, you take everything seriously. You don’t do things halfway, and your effort shows in everything you accomplish. :>
+
+Your intelligence is something I deeply admire, not just because you’re smart, but because of how you use it. You’re curious, thoughtful, and willing to learn. You don’t look down on others, and you’re always patient when helping someone understand.
+
+There’s a kindness in you that feels genuine and effortless. You help without expecting anything in return, and you care without making a show out of it. The way you look out for others, even in small ways, says a lot about your heart.
+
+I admire your humility. Despite everything you’re capable of, you remain grounded. You don’t feel the need to prove yourself to anyone, and that quiet confidence makes you even more admirable.
+
+Your emotional strength stands out to me. You carry so much, yet you still choose to show up for others. Even when you’re tired or overwhelmed, you find ways to care, and that takes so much inner strength.
+
+I admire the way you listen. You’re present, attentive, and sincere. When someone talks to you, they feel heard, and that’s a gift not everyone has.
+
+Your willingness to grow is something I truly respect. You don’t see mistakes as failures, but as chances to learn and become better. That mindset makes you someone who will continue to grow no matter where life takes you.
+
+I admire how you treat people with respect, regardless of who they are or what they can offer. Your kindness isn’t selective; it’s consistent. That speaks a lot about your character.
+
+There’s something comforting about your presence. You don’t need to say much or do anything grand to make people feel at ease. Just being around you feels steady and reassuring.
+
+I admire how responsible you are. You take care of the things that matter, remembering the little details, keeping your word, and looking out for the people you care about.
+
+I admire your resilience. No matter what challenges come your way, you keep going, and you don’t let difficulties make you cold, if anything, they make you more understanding.
+
+I admire your sincerity. The way you care, love, and commit is real, and it makes it easy to trust you.
+
+I admire how you try to be better, not just for yourself, but for the people you care about. That effort means a lot to me.
+
+All of this together makes you someone truly special, kind, strong, thoughtful, and genuine. And every day, I find more reasons to admire you for who you are, not just what you do.`,
+`Letter #10
+When I Miss You
+
+When I miss you, it comes quietly at first. It sneaks into my thoughts when I least expect it. A small reminder, a passing memory, or something that feels familiar suddenly makes my chest feel heavy. That’s when I realize how much space you take in my heart.
+
+Sometimes, missing you feels like a pause in the day. Everything keeps moving, but I slow down just a little. My mind drifts to you without effort, like it already knows where it wants to go hahsdha. You become the thought I return to again and againnn.
+
+I miss the sound of your voice more than I admit. Even simple conversations feel special when they’re with you. When I miss you, I replay moments in my head just to feel close again. It’s my way of holding onto you from afar.
+
+There are moments when I wish I could tell you everything I’m thinking right then and there. The small thoughts, the random feelings, the things that don’t feel important until you’re not around. Missing you makes me realize how much I want to share my life with you. Even the simple parts feel incomplete without you.
+
+When I miss you, time feels different. Minutes feel longer, and waiting feels heavier. I find myself checking my phone more often than usual. Just the thought of hearing from you brings comfort.
+
+I miss the way being with you feels effortless. No pressure, no pretending, just comfort and familiarity. When you’re not around, I notice the absence of that ease. It reminds me how rare that feeling is.
+
+Sometimes missing you feels warm instead of sad. It’s filled with memories that make me smile without realizing it. Even though there’s distance, the connection still feels strong. That thought brings me peace.
+
+There are days when I miss you in the smallest ways. I miss the little habits, the shared jokes, and the quiet moments. Those tiny things stay with me longer than I expect. They linger because they matter.
+
+When I miss you, I think about how safe I feel with you. That sense of comfort doesn’t disappear just because you’re not here. It stays with me, like something steady I can rely on. And that makes missing you feel bearable.
+
+Sometimes I imagine what it would be like if you were right beside me. The things we’d talk about, or maybe the silence we’d share. Those thoughts make the distance feel smaller. They remind me that this feeling comes from something real.
+
+I miss you in moments of happiness too. When something good happens, you’re the first person I want to tell. Missing you then feels like a quiet longing to share joy. It’s another reminder of how much you mean to me.
+
+When I miss you, I remind myself that this feeling exists because of connection. Because caring this deeply means something real is there. It’s not just longing, it’s proof of love and attachment. That thought gives the feeling meaning.
+
+There are times when missing you makes me emotional. It hits suddenly and without warning. But even then, I wouldn’t trade this feeling for indifference. Missing you means you matter deeply to me.
+
+I miss you in ways that are hard to explain. Not just your presence, but the way you make things feel lighter. Life feels softer when you’re around. That’s what I long for when you’re not.
+
+Even when the distance feels heavy, I hold onto patience. I remind myself that this isn’t forever. Missing you makes seeing you again feel even more special. It gives me something to look forward to.
+
+When I miss you, I hold onto the certainty that you’re worth it. Every longing moment, every quiet ache, every thought of you. You’re worth missing, every single time. And I’d choose this feeling again if it meant choosing you.`,
+`Letter #11
+How You Changed Me
+
+You’ve changed me in ways I didn’t even realize until now. I feel softer, more patient, and more understanding because of you. You’ve taught me to see the good in small things, and to appreciate quiet moments. Life feels different with you in it, richer, warmer, and calmer.
+
+I’ve learned to trust more openly. I no longer hesitate to share my thoughts or feelings, even the messy ones. You’ve shown me that being vulnerable doesn’t make me weak. That lesson has shifted the way I connect with everyone, not just you.
+
+You’ve changed how I view love. I used to think it was complicated, heavy, or exhausting. Being with you makes it feel natural, simple, and joyful :3. Loving you feels instinctive, something I don’t have to think about.
+
+I’ve started noticing the little details that make life beautiful. The way sunlight shines, the way laughter spreads, the way small gestures matter more than grand ones. You’ve taught me to find joy in these small things. And because of you, I appreciate life more fully.
+
+I’ve learned patience because of you. Waiting for messages, understanding you, and giving you space has taught me how to slow down. I’ve realized not everything has to happen immediately. Timing, effort, and care all matter, and that’s a lesson I owe to you.
+
+You’ve taught me empathy. I try harder to understand perspectives that aren’t my own. I listen more attentively, think before reacting, and consider feelings beyond my own. That growth wouldn’t have been possible without seeing your compassion in action.
+
+You’ve helped me appreciate consistency. The little things you do every day, without expecting attention, show me that love and care are in the details. Actions matter more than words. That lesson has changed the way I act, not just in love, but in life.
+
+I’ve learned to slow down and enjoy the moment. With you, it’s never about rushing or forcing things. Every shared laugh, every quiet glance, every touch is meaningful. I’ve realized the importance of presence, and that’s because of you.
+
+You’ve changed how I view happiness. I used to think it was tied to achievements or milestones. Now I see that joy can be as simple as a text from you or sitting next to you in silence. You’ve redefined what it means to feel truly happy.
+
+I’ve grown more confident because of you. Your encouragement, your trust, and your belief in me make me believe in myself. Even on bad days, your presence reminds me that I’m capable. That confidence is a gift I carry with me every day :>.
+
+You’ve taught me to celebrate small wins. I notice the little improvements, the progress, the effort, it’s made me more optimistic. Life feels brighter when I acknowledge the journey, not just the destination. That perspective is something I’ve learned from watching you live with intention.
+
+I’ve learned to be kinder to myself. You never judge my flaws or mistakes; instead, you encourage me to grow. I’ve learned to forgive myself, to treat myself with patience, and to see my own worth. That shift has made me more balanced and happier.
+
+You’ve shown me the power of listening. Not just hearing words, but truly understanding what someone is feeling. That skill has helped me in every relationship I have. It’s changed the way I connect with people.
+
+You’ve changed how I see love. I used to think it was only shown through big gestures, but now I know it’s in small acts, thoughtfulness, and the moments we share. Loving you has taught me that what’s felt matters more than what’s shown.
+
+You’ve taught me gratitude. I notice little things, moments of joy, and people’s efforts in ways I didn’t before. Life feels fuller and richer because I’m more mindful of these gifts. That awareness is something I cherish deeply.
+
+I’ve learned resilience. Seeing how you handle challenges quietly and steadily has inspired me to be stronger. I approach setbacks with a calmer mind, knowing effort matters more than frustration. That strength is part of the change you’ve brought into me.
+
+You’ve made me more appreciative of time. Moments with you feel valuable, fleeting, and precious. I’ve learned to savor them, to notice them, and to hold them close. That mindset is something I'll always carry with me :)
+
+Finally, you’ve changed me by showing me love’s simplicity. It’s not dramatic or exhausting, it’s steady, comforting, and real. I feel lighter, happier, and more complete because of you. And that, above all, is what I admire most.`,
+`Letter #12
+Dreaming About Your Future
+
+I often imagine your future, and it fills me with warmth and hope. I picture the things you’ll accomplish, the challenges you’ll overcome, and the happiness you’ll create for yourself. I hope every step you take leads you closer to the life you want. Imagining it makes me proud already, even before it happens :D.
+
+I dream of your success in everything you work hard for. Academics, hobbies, personal goals, I see you thriving in all of them. You have the dedication and intelligence to achieve so much. I can’t wait to see all the ways you grow ^_^.
+
+I picture you surrounded by people who love and appreciate you. Friends, family, and people who see your heart and respect it. I hope they remind you how valued you are. You deserve to be celebrated every day.
+
+I imagine the home you might build for yourself someday. Warmth, comfort, laughter, and stability. A place where you feel safe, loved, and free to be yourself. I hope it’s a home as kind, steady, and genuine as you are.
+
+I see you chasing dreams fearlessly. Even when obstacles appear, I imagine you standing strong, learning from every challenge. You have the resilience to push through and the patience to see things unfold. I hope you never doubt yourself on that journey.
+
+I dream of the person you’ll become in the years ahead. Someone even stronger, wiser, and more confident than you are now. I imagine you still caring deeply, still thoughtful, still humble. Those qualities will always make you unique and great.
+
+I imagine the laughter that will fill your days. Moments of joy that come unexpectedly, moments of pride when you reach milestones, moments of peace when you’ve done your best. I hope those moments come often and leave you smiling.
+
+I picture you achieving the goals you’ve set for yourself. Long-term ambitions, small victories, and every step in between. Each accomplishment will be a reflection of your effort and heart. I hope you pause to celebrate every one of them.
+
+I imagine the people you’ll inspire along the way. Friends, younger siblings, classmates, or strangers, anyone who crosses your path. I see them learning from your example, admiring your consistency, and feeling the warmth of your kindness. You’ll touch more lives than you realize.
+
+I dream of the person who will share your life someday, the one who will see your heart and stand by your side. Someone who appreciates your efforts, your love, and your loyalty. I hope they match your care and make you feel cherished every day.
+
+I imagine your family proud of you, proud of the person you’ve become. I know how much they love and support you already. I hope every success, every moment of happiness, reminds them how special you are. Their pride is well-deserved.
+
+I dream of the quiet moments you’ll have for yourself. Days when you can reflect, relax, and enjoy the peace you’ve earned. Moments when life slows down, and you can just be content. I hope you find plenty of those moments.
+
+I imagine the challenges that may come, and I know you’ll handle them with patience and resilience. Obstacles are part of life, but you have the strength to meet them. I see you learning from every setback, growing through every difficulty. That makes me believe in you even more.
+
+I picture the happiness you’ll share with others. Small gestures, thoughtful words, and acts of kindness that ripple through the people around you. I hope you never underestimate the impact you have. Your heart changes things quietly but powerfully.
+
+I dream of your achievements not just in school or work, but in life. Emotional growth, mental strength, and meaningful relationships. Those are victories that no one measures, but they matter the most. I see you succeeding in every sense.
+
+I imagine the confidence you’ll carry in the years ahead. Calm, steady, and self-assured without arrogance. That quiet confidence will guide you, protect you, and inspire those around you. You’re capable of so much more than you even know.
+
+I dream of your laughter echoing in the years to come. Moments of pure joy, silliness, and comfort shared with people you love. I hope they remind you of how bright and alive life can be. Laughter suits you, and I hope it never fades.
+
+I imagine the dreams you’ve kept to yourself, your hidden ambitions, secret wishes, and the surprises life has in store for you. I hope you chase them, make them yours, and see them come true. Life is full of possibilities, and I know you have so much potential.
+
+I dream of the way you’ll continue to care for people, even as life changes. The way your heart stays kind, your actions remain thoughtful, and your presence is steady. That’s the part of you that makes you truly special. I hope you never lose it.
+
+Finally, I imagine your future with hope, pride, and love. I see you happy, accomplished, and at peace with yourself. Every dream, every goal, every quiet moment, all of it belongs to you. And I can’t wait to see it unfold, step by step, day by day.`,
+`Letter #13
+Why Loving You Feels Easy
+
+Loving you feels natural, like it’s always been a part of me. It doesn’t require overthinking or forcing anything. With you, it flows effortlessly, quietly, and genuinely. That ease is rare, and I treasure it every day.
+
+I feel at peace when I’m with you. There’s no need to fake anything, no need to hide my thoughts or feelings. I can be completely myself, and you accept it. That acceptance makes loving you effortless.
+
+Even in silence, loving you feels simple. We don’t always need words to feel connected. Just being near you is enough to fill me with warmth. That comfort makes love feel natural, steady, and safe.
+
+You make trust feel easy too. I don’t have to question your intentions or worry about misunderstandings. I feel secure knowing that your heart is genuine and your care is sincere. That makes loving you something I never hesitate to do.
+
+Every little thing you do reminds me why I love you. The way you notice small details, help out, or make me laugh—it all matters. I feel seen, appreciated, and valued. Loving you feels easy because it’s genuine.
+
+You make me feel understood, even without me saying everything. You know when to listen, when to be serious, and when to just be there. That kind of connection is rare and comforting. It makes love feel gentle, and I really love that.
+
+I never feel drained loving you. Even after long days or stressful moments, being with you restores me. Your energy, care, and presence are soothing. Loving you feels more like rest than effort.
+
+You’re consistent, yet surprising in all the right ways. I know I can rely on you, but I’m also always discovering new sides of you. That balance keeps me excited, curious, and grateful. 
+
+I admire your patience and understanding. You never rush me or force me to be someone I’m not. You meet me where I am, every time. That patience makes love feel easy and kind :>. 
+
+You bring out the best in me. Loving you encourages me to grow, try harder, and be better. It doesn’t feel like pressure; it feels like inspiration. That makes the process of loving you effortless and joyful.
+
+Even when challenges arise, love with you feels manageable. We communicate, compromise, and support each other. Problems don’t feel overwhelming because we face them together. 
+
+I love how we can just be together. Sitting quietly, joking around, walking side by side, or holding hands for a short while, every little thing we do feels meaningful because it’s us.
+
+I feel free when I love you. I don’t feel trapped, obligated, or constrained. I feel excitement, warmth, and belonging. Loving you is freedom, not burden.
+
+You make me feel appreciated in ways I didn’t expect. Every small act, every kind word, every gesture of care reminds me that you notice and value me. That recognition makes loving you feel rewarding.
+
+Your humor, your quirks, your personality make being around you easy. I laugh more, smile more, and relax more. Loving you doesn’t feel like a responsibility, it feels like joy.
+
+I admire your heart, and it makes loving you feel effortless. Your kindness, thoughtfulness, and care for others reflect who you are. That goodness draws me in, naturally, every SINGLE time.
+
+I feel connected to you on levels I can’t always describe. Shared jokes, glances, habits, and experiences create a bond that's steady and comfortableee. That connection makes love feel easy, smooth, and right. 
+
+Even when I’m unsure or anxious, loving you doesn’t feel complicated. You bring clarity, patience, and reassurance without needing to explain. That sense of calm makes loving you feel fulfilling.
+
+Your love doesn’t ask for perfection. You accept flaws, mistakes, and imperfections, both yours and mine. That acceptance makes me feel safe and free. Loving you is simple because it doesn’t demand anything I can’t give.
+
+Lastly, loving you feels easy because it’s real. No drama, no pretenses, no forcing, it just is. It flows effortlessly because it comes from a place of truth and care. Loving you feels like the most natural thing in the world, and I am endlessly grateful for it.`,
+`Letter #14
+Promises I Want to Keep
+
+I promise to try my best for you, in ways that I am able to give right now. Not perfectly, not endlessly, but honestly. I want to show up with sincerity, even as I’m still learning. That effort is something I can promise :>.
+
+I promise to listen when you want to talk, and to be present when you need company. I won’t always know the right words, but I’ll care enough to hear you out. Your thoughts and feelings matter to me. I want you to feel that consistently.
+
+I promise to support your goals in the ways I can. I’ll cheer for you, encourage you, and believe in your efforts. Even when I don’t fully understand everything, I’ll still want you to succeed. Your growth is something I genuinely care about.
+
+I promise to be thoughtful in small ways. Checking up on you, helping when I can, and paying attention to what matters to you. These are things I can do now, and I want to keep doing them.
+
+I promise to respect your boundaries and your space. I understand that we’re both still growing, figuring things out, and learning who we are. I won’t rush you or pressure you into anything you’re not ready for. Mutual respect is important to me :>.
+
+I promise to be honest with you, even when it feels uncomfortable. I’d rather be truthful than pretend everything is fine. That honesty may not always be perfect, but it will be genuine. I want what we have to be real, not idealized :>.
+
+I promise to make you feel appreciated. I’ll try to notice your efforts, your kindness, and the things you do for me. Feeling seen matters, and I don’t want you to ever doubt that. You deserve to be valued.
+
+I promise to be patient as we both learn. We won’t always get things right, and that’s okay. I’m willing to grow alongside you, one step at a time. Learning together feels more meaningful than rushing ahead :D.
+
+I promise to comfort you when I can. I may not always have solutions, but I can offer care and presence. Sometimes just being there is enough. I want to be someone you feel safe with.
+
+I promise to communicate when something weighs on me. Instead of pulling away, I’ll try to express myself. It won’t always be easy, but I want to try. Understanding matters more than silence.
+
+I promise to keep things light when they need to be. To laugh with you, joke around, and enjoy the fun moments. Love shouldn’t always feel heavy. I want it to feel warm and alive too.
+
+I promise to acknowledge my mistakes. When I get things wrong, I’ll own up to them and learn. Growth comes from accountability, and I’m willing to do that. I don’t want pride to get in the way of us.
+
+I promise to encourage you when you doubt yourself. I’ll remind you of your strengths and the effort you put in. Even if you don’t see it yet, I do. That belief is something I can offer sincerely.
+
+I promise to take care of what we have, without forcing it. I’ll appreciate the moments we share and not take them for granted. What we have now matters, and I want to treat it with care. 
+
+I promise to grow at a healthy pace. Not rushing the future, not fearing it either. Just focusing on what we are and what we can be today. That’s something I feel comfortable promising.
+
+I promise to choose kindness when we misunderstand each other. I will pause and think before I react. We are both still learning, and patience matters. I want what we have to feel safe.
+
+I promise to respect change, in you and in me. People grow, feelings evolve, and that’s part of life. I won’t cling too tightly or ignore reality. I want what we share to be honest and healthy :).
+
+I promise to be grateful for you. For the moments, the lessons, and the memories we create. Even if life changes, what we share now still matters. Gratitude keeps things real and grounded.
+
+I promise to stay genuine with you. No pretending, no exaggeration, no empty words. Just honesty, care, and effort where I can give it. That’s a promise I can truly stand by.
+
+Right now, I promise to love you in the best way I know how. Not perfectly, not forever-guaranteed, but sincerely and fully in this moment. That feels right to me. And that’s the promise I want to keep.`,
+`Letter #15
+The Things I Fear Losing
+
+There are things about us that I hold very close, and one of them is the safety you give me. Your presence has a way of calming me, even on busy or overwhelming days. Just knowing you’re there brings comfort. I can’t imagine not having that :<.
+
+I also treasure the routines we’ve built without even noticing. The messages, the laughter, the random jokes that slip into the day. They seem small, but they brighten everything. Losing those quiet constants would leave an emptiness I’d feel right away.
+
+The silence we share means more to me than words. Sitting together without needing to talk feels rare and special. Those moments are simple, but they carry warmth. They’re something I never want to take for granted.
+
+What we understand without explaining is something I value deeply. The looks, the inside jokes, the knowing smiles all create a connection that feels natural. It’s not something that can be replaced easily. Losing that would hurt in ways words can’t explain.
+
+Trust is another thing I protect closely. Being able to open up, share fears, and speak honestly took time to build. That safety means everything to me. The thought of losing it feels heavy.
+
+Your laughter brings light into my days. The jokes, the teasing, the silly moments make life feel lighter. That kind of joy is rare. Without it, days would feel quieter and less alive.
+
+The support we give each other matters more than I often say. Your encouragement and kind words make hard days easier. They remind me I’m not facing things alone. Life feels heavier without that kind of support.
+
+Even the warmth in small touches means a lot to me. Holding hands, hugs, and casual touches remind me of closeness. They’re simple but grounding. Without them, days would feel colder.
+
+I value how honest we are with each other. Sharing thoughts without fear creates comfort and trust. That openness makes communication easy. Losing it would make everything feel distant.
+
+The fun we share adds color to life. Playful arguments, games, and spontaneous moments turn into memories I keep. They make ordinary days brighter. Without them, things would feel dull.
+
+I notice the quiet care you show. Checking in, asking how I am, offering help without being asked. Those gestures make me feel seen and valued. They’re not loud, but they matter.
+
+You also inspire me in ways you might not realize. Your effort and growth push me to do better. Watching you try encourages me daily. Losing that motivation would leave a gap.
+
+The small words you say stay with me. Simple reassurances carry more weight than you think. They settle in my heart and stay there. Without them, comfort would feel harder to find.
+
+Facing difficult days together makes everything easier. Patience, understanding, and quiet support help me feel steady. Those moments matter during the hardest times. Losing that would leave me feeling alone.
+
+I hold onto the certainty that we still care, even through distance or disagreement. Knowing we choose each other through ups and downs gives me peace. That trust strengthens us. Without it, everything would feel uncertain.
+
+Our shared dreams give me something to look forward to. Hopes, plans, and little wishes make life feel exciting. Sharing them makes me feel connected to you. Losing that would make things feel far apart.
+
+Even the way we make simple days feel meaningful matters to me. A snack, a walk, or a short conversation can feel special with you. Those moments stay with me long after. They remind me why I care so deeply.
+
+Being understood is something I never want to lose. That feeling of being seen without having to explain everything brings comfort. It makes me feel safe and accepted. Losing that would make me feel unseen.
+
+The joy we create together is something I protect closely. The laughter, teasing, and shared happiness fill my days. Those memories are precious to me. Without them, life would feel emptier.
+
+I think about change, distance, and time, and how they can slowly shift things. Even small changes in closeness matter to me. That fear exists because of how much you mean to me. It reminds me to cherish what we have, every single day.`,
+`Letter #16
+For When You Doubt Yourself
+
+It’s okay to feel uncertain sometimes, Sam. Everyone has moments where they question themselves or their choices. That doesn’t mean you’re failing or weak. Those doubts are just part of being human :). 
+
+I want you to remember how capable you really are. Even when things feel hard, you’ve overcome challenges before. You have the strength and skill to handle what comes next. Trust yourself, even if it feels scary.
+
+There will be days when you feel small or overlooked. On those days, know that your effort matters. Even tiny steps show progress and growth. You’re doing more than you realize.
+
+It’s natural to compare yourself to others. But your journey is yours alone. Your pace, your choices, your strengths; they’re unique. Don’t let comparisons steal your confidence, omkiee?
+
+You’ve faced obstacles before and survived. That resilience hasn’t disappeared. It’s part of who you are, quietly guiding you through challenges. Believe in that strength when doubt creeps in :>
+
+Sometimes, your mind may focus on mistakes or setbacks. Instead of letting them define you, see them as lessons. Every misstep teaches something valuable. You’re learning and growing every day.
+
+I hope you remember the people who care for you. Those who see your heart, your effort, and your kindness. They notice you even when you feel invisible. Lean on them when doubt feels heavy.
+
+There are qualities in you that are rare and special. Your kindness, patience, thoughtfulness, and humor matter. You inspire and uplift those around you. Don’t underestimate the power you already hold.
+
+You don’t have to have all the answers right now. Life is a series of questions and learning as you go. It’s okay to take things one step at a time. That doesn’t make you any less capable.
+
+Even when progress feels slow, it’s still progress. Every effort, every decision, every attempt matters. Celebrate the small wins, they build the foundation for bigger ones. You’re moving forward more than you see.
+
+Remember that feelings of doubt don’t make you flawed. They are temporary, and they do not define your abilities. You are capable, resilient, and worthy. Keep focusing on the strengths you already have.
+
+You’ve made it through tough times before. That proves that you can handle more than you sometimes believe. Your strength is quietly constant, even when you feel unsure. Trust that it’s enough.
+
+Sometimes, taking a break is necessary. Resting doesn’t mean giving up. It means you care for yourself and your well-being. Come back to challenges refreshed and stronger.
+
+Focus on the things you can control. Worrying about the rest only adds unnecessary stress. Your choices, effort, and attitude matter most. Use them wisely and intentionally.
+
+Celebrate who you are right now. You’re growing, learning, and improving every day. Even imperfections are part of your beauty. Don’t let doubt hide your worth.
+
+You are more resilient than you think. Challenges test you, but they also show your capacity to endure. Every time you keep going, you prove your strength. Believe in that even when it’s hard to see.
+
+It’s okay to feel unsure about the future. No one has it all figured out, not even adults. What matters is the effort you put in and the heart you show. That effort is enough for today.
+
+Try to focus on what you’ve achieved, not what feels out of reach. Every small victory, every skill learned, every act of care counts. You’ve accomplished more than you realize. Take pride in that :D. 
+
+Above all, remember that I believe in you. Even when you doubt yourself, I see your effort, your growth, and your heart. You are capable, strong, and loved. Let that belief lift you when you feel uncertain.`, 
+`Letter #17
+Thank You
+
+Being around you makes even normal days feel special. Your presence brings warmth I didn’t know I needed. Every little thing you do adds meaning to my life. I’m grateful for it more than I can say.
+
+When I need to talk, you’re always willing to listen. No judgment, no rush, just attention and care. That makes me feel safe and understood. It’s a comfort I don’t take for granted.
+
+Support comes in quiet ways that mean so much. Whether it’s helping with small tasks or cheering me on, it lightens my load. I notice even the smallest gestures. They make a difference every day.
+
+Laughter seems easier when you’re around. Your jokes, playful teasing, and silly moments brighten everything. It makes the world feel lighter. I treasure those moments more than you know.
+
+Patience is rare, and you have so much of it. Even when I overthink or need time, you never rush me. That care shows a kind of love that feels safe. I notice it and appreciate it a lot.
+
+Sharing your thoughts and feelings takes courage, and I admire that. You trust me with pieces of yourself that not everyone gets to see. It’s a gift I value every day. I want to honor it as best I can.
+
+Small gestures speak volumes. Bringing snacks, helping carry things, or checking in shows how much you care. Those details make life brighter. They remind me how lucky I am to know you :3
+
+Honesty makes what we have feel real. You speak your mind, even when it’s hard. That trust strengthens our bond quietly but firmly. It’s something I want to hold onto.
+
+Seeing you work hard inspires me. Your effort in school, hobbies, or even small tasks makes me want to do better too. You lead by example without even realizing it. I appreciate that so much.
+
+Kindness is part of who you are, and it shows. Whether it’s with me or others, your heart shines in small ways. Watching that inspires me to be better. 
+
+Even the simplest moments mean more when I’m with you. A walk, a quick talk, or sharing food stays with me. You make everyday life feel warmer. I appreciate that, a lot. 
+
+I always notice the respect you show me. You respect my thoughts, my space, and my boundaries. It makes me feel safe and valued. I hope you know how much that means to me.
+
+Love can be gentle, and you show me that every day. It’s quiet and thoughtful in the way you care. That makes it easy for me to trust and feel safe. I’m thankful for that.
+
+You inspire me in quiet ways. Your effort and heart make me wanna grow too. Even without trying, you push me to be better. That means a lot to me.
+
+I know I can rely on you. You show up in ways that matter. That gives me comfort and peace. It makes everything feel lighter.
+
+Sharing moments with you feels special. Big or small, you make me feel noticed. That warmth stays with me. I hope you feel it too.
+
+You make me feel loved without trying. Your words and actions show me I matter. That feeling is rare. I keep it close to my heart.
+
+You always listen without judging. Even when I overthink or talk too much, you give me space. That makes me feel understood. I really appreciate thattt.
+
+Growing with you feels right. Learning and figuring things out is easier with your patience. I’m grateful to share this with you. Our bond means a lot to me.
+
+Having you in my life makes everything better. Simple days feel brighter, and hard ones feel lighter. I cherish all of it. You mean more to me than you know.`,
+`Letter #18
+The Things I Love About You
+
+One of the first things I noticed about you was your kindness. You show care in quiet ways. Small actions, done sincerely, say a lot about you. Knowing you makes me feel lucky.
+
+You make me laugh without trying too hard. Your humor feels natural and light. Even ordinary or stressful days feel easier with you around. I enjoy those moments so much.
+
+I appreciate how patient you are with me. You give me time when I need it. You never make me feel rushed. That means more than you know.
+
+I admire how you keep going. You put effort into what matters to you. Even when things get hard, you still try. Watching that pushes me to do better too.
+
+You pay attention to little things. You remember details that most people forget. That shows how much you care. It makes me feel important.
+
+I value your honesty. You speak openly, even when it’s uncomfortable. That makes me trust you more. It brings us closer.
+
+I love how simple moments feel better with you. A short walk or quick chat feels enough. Being with you makes small things meaningful. That’s something special.
+
+You’re kind to everyone, not just me. The way you treat people shows your character. It feels good to admire someone like that. It makes my respect for you deeper.
+
+You support others quietly. You help without needing attention. I notice that effort. It tells me a lot about your heart.
+
+I feel calm when I’m with you. Your presence eases my worries. You make things feel less heavy. That comfort matters to me.
+
+Your good energy spreads easily. When you’re happy, it shows. It lifts the mood around you. I love seeing that.
+
+You care about what you want to achieve. You focus and keep trying. That dedication makes me admire you. It shows strength.
+
+I like the way you think. You approach things differently. Your ideas feel genuine. That makes you interesting to be around.
+
+You listen when I talk. Even when I go on too long, you stay present. That makes me feel heard, I really value that.
+
+Your small gestures mean a lot to me. Checking in, helping out, or remembering something simple makes a difference. Those things stay with me.
+
+I love how grounded you are. You don’t let achievements change you. That quiet confidence suits you. It makes you easy to admire.
+
+You’re loyal to the people you care about. You stay consistent. That reliability makes me feel secure. I appreciate that deeply.
+
+Your curiosity keeps things interesting. You like learning and asking questions. Talking with you never feels dull. I enjoy sharing ideas with you, whether it's serious or silly.
+
+Even silence feels easy with you. Sitting together without talking still feels right. Those quiet moments feel safe and they mean more than words.
+
+Most of all, I love having you in my life. Your presence makes days better, I notice all the ways you matter to me. Loving you feels simple and real.`,
+`Letter #19
+Hopes for Us
+I hope you share what’s on your mind more often. Even small thoughts matter to me, and hearing them makes me feel closer to you. I want to understand you better.
+
+I hope you let yourself ask for help sometimes. You don’t have to carry everything alone. Letting someone in doesn’t take away your strength, and I want to be someone you can lean on.
+
+I hope you notice when I grow quiet or distant. Sometimes I say I’m fine when I’m not. Just staying close already helps. Your presence makes everything feel lighter.
+
+I hope we keep having playful moments together. Laughing and joking makes days easier. Those little sparks remind me how good it feels to be with you, and I hope we have more of them.
+
+I hope you allow yourself to rest. You work so hard, and it’s okay to slow down. Taking breaks doesn’t make you any less. I want to see you at ease too.
+
+I hope you see your own progress. Every effort you make matters. I notice how much you try, and I hope you feel proud of yourself as much as I am proud of you.
+
+I hope you share your worries with me. You don’t have to figure everything out alone. Talking makes things lighter, and I want to be someone you can trust completely.
+
+I hope you take care of yourself as much as you care for others. Your well-being matters. You deserve comfort and happiness, and I hope you feel that fully.
+
+I hope you notice how much the little things matter. Bringing snacks, helping out, checking in, those small acts show love. I hope you know they mean so much.
+
+I hope you trust yourself more. You are capable, even when you doubt it. I wish you could see yourself the way I see you.
+
+I hope you give yourself credit. Your effort in school, hobbies, and life deserves recognition. You don’t have to downplay it because it really matters.
+
+I hope you accept affection without holding back. Small touches and closeness calm me and make me feel safe. You don’t need words for it. Just being near is enough.
+
+I hope we try new things together more often. Small adventures or tiny experiments in life can turn into memories that bring us closer. I can’t wait for all the moments ahead.
+
+I hope that when misunderstandings happen, you share your thoughts with me like you promised. I know you want to fix things too, but waiting too long can make the hurt grow. I hope we can talk sooner, work through things together, and make it easier for both of us :>
+
+I hope you feel safe being vulnerable with me. Fears and insecurities don’t push me away. They bring us closer, and I want to be someone you can lean on completely.
+
+I hope we keep learning and growing together, enjoying the little moments, and staying close through everything, I’m grateful for you and everything you do, and I just love having you in my life :>`,
+`Letter #20
+What I Want You to Know
+
+Sometimes it annoyed me when it felt like you didn’t come closer when I needed you. Even small moments, like when I reached out, it seemed like you weren’t sure how to respond. Being called “desperate” for caring made me overthink even more and feel a little hurt. I just wished you noticed and reached back, even in a small way, because it mattered to me.
+
+There were times I felt left wondering about your thoughts or feelings. Not knowing where we stood made me anxious and overanalyze everything. I know you didn’t mean to make me feel that way, but I want you to understand how confusing it was for me. A little clarity or reassurance would have gone a long way.
+
+It used to bother me when it seemed like I was the only one making an effort. Little gestures, messages, or check-ins sometimes felt one-sided, and it made me question if I mattered as much to you at that moment. I understand now that it wasn’t intentional, but I want to be honest about how it felt for me.
+
+Sometimes I wish there was more openness between us in those moments. Even small hints or simple words could have made me feel safer and more understood. A little communication could have avoided a lot of confusion and worry, and I hope we can both work on that moving forward.
+
+I also want to say that sometimes I held back my feelings because I didn’t want to pressure you or make things awkward. I know that may have added to the distance, and I regret letting my worries pile up instead of sharing them sooner.
+
+Even though it annoyed me at the time, I understand more now. I see how things might have seemed complicated from your side too. I just hope you truly know what I felt back then. Those small or silent moments mattered to me a lot.
+
+And now, it’s okay. Those little annoyances belong to the past, and they don’t define us. I hope we don’t go back to those moments, but if ever they happen again, like unnecessary distance or misunderstandings, I trust that we can communicate and handle it together instead of letting it grow :>.`,
+`Letter #21
+When We Don’t Talk
+
+Silence between us can feel heavy sometimes. I notice the quiet moments and start wondering what you’re thinking. Even if it’s nothing serious, my mind starts overthinking, and I wish I could feel closer to you, even in the quiet.
+
+Not talking makes me miss the little things about you; your jokes, your teasing, your voice. I realize how much I take those moments for granted, and it makes me appreciate you more when we finally do speak.
+
+Sometimes I worry that you’re upset or distant. Even if you’re not, my mind fills the gaps. I know it’s not fair to you, but I want you to know how I feel. I want us to stay connected, even when we’re apart, and I hope you can be brave enough to share what’s on your mind with me, even if it feels hard.
+
+I remember during the 2nd quarter exams, I was really hurting. I felt distant from you and unsure of where we stood. I was glad I made the move first to ask you to talk, but it was draining when it felt like I was always the one to reach out. It meant a lot to me, and I hope you felt how much I wanted us to understand each other. I hope you get me, even when I don’t say everything perfectly.
+
+I feel a little lost when we go long stretches without talking. The bond we share feels quieter, almost paused. I know silence doesn’t mean we’re drifting, but it can make me anxious. I hope we can notice each other sooner and reach out before the pause grows too long.
+
+Even when we don’t talk, I hope you know I care. My thoughts are still with you, and I wish I could reach out without feeling awkward. A small message, even just a “hi,” would mean a lot. I hope we can do that more naturally.
+
+I notice how much I rely on our daily interactions, whether in chat or in person. Little updates, random stories, or simple moments together make me feel close to you. When they don’t happen, I realize how important those moments are. I understand we don’t need to interact every day, but I hope we can keep that closeness alive whenever we can.
+
+Sometimes I get anxious when you wait too long to respond. I know you also want to fix things, but the delay makes the hurt feel bigger. I hope we can talk sooner, share our thoughts, and work through moments together, so neither of us feels left alone.
+
+Even without words, I notice the small things you do—your presence, a glance, a smile. They reassure me and show me that we still care. I wish we could be more aware of each other in those quiet times, so the silence feels comforting rather than lonely.
+
+I miss your voice the most when we don’t talk. Just hearing you makes everything lighter and easier. That’s why even short conversations or small check-ins mean so much to me.
+
+I try to trust that distance doesn’t mean we’re disconnected. Even in quiet moments, I keep you in my thoughts. I hope you feel the same, so we can still feel close even when we’re apart.
+
+I wish silence could help us grow closer, not create worry. Understanding each other without words is something I hope we practice together. It takes patience and care, but I believe we can do it.
+
+Even when I feel anxious in silence, I remind myself that love isn’t only in words. It’s in care, trust, and small gestures. I hope we always find ways to show that, so quiet moments don’t feel empty.
+
+Sometimes I imagine what you’re doing during our quiet moments. Thinking about you keeps me close, even when we’re apart. I know silence is temporary. It doesn’t erase what we have.
+
+I hope we can be brave enough to talk to each other, even when it feels uncomfortable. Sharing fears, doubts, or small worries won’t push me away—it will bring us closer. I want us to feel safe opening up fully.
+
+Sometimes silence teaches me to appreciate words more. Every “hi,” every laugh, every conversation becomes precious. I notice them more after quiet, and it makes me value our connection deeply.
+
+Even when we don’t talk, I carry you in my thoughts. It’s a quiet kind of presence, but it’s there. I hope you feel the same about me. That makes the wait easier.
+
+And in the end, I remind myself that it’s okay when we don’t talk sometimes. Distance or quiet moments are natural, but I hope we never let them linger too long. If it happens again, I hope we both remember to reach out and communicate, and I trust we’ll handle it together.`,
+`Letter #22
+The Silent Thoughts I’d Like You to Know
+
+Sometimes I struggle to put my thoughts into words. It’s not because I don’t trust you, but because I fear they might sound too much. My thoughts pile up, and I don’t know where to start. I hope you understand that silence doesn’t mean I don’t care.
+
+I often wish I could tell you how proud I am of you. You try so hard, and sometimes I just want to shout it out. But I keep it in, thinking you already know. I hope you can feel it even without words.
+
+There are moments when I miss your presence more than I can explain. It’s not just about being together, it’s how you make everything feel lighter. Even if I don’t say it, you’re in my thoughts, my small gestures try to show it.
+
+Sometimes fear keeps me from sharing my worries. Thoughts about the future, about us, or about myself feel too big to voice. I don’t want to burden you with them. I hope you trust that I’m doing my best quietly.
+
+The little things you do make me happy. Your smiles, messages, and care mean a lot. I keep them in my heart, even if I don’t say it.
+
+Other times, your presence alone says what words can’t. A hug, a hand to hold, or just sitting together comforts me more than I can explain. I hope you feel the effect even if I stay quiet. It’s my way of showing love.
+
+Sometimes your voice reaches me in ways words can’t capture. Even a simple “hello” brightens my day. I might not always say it, but it means so much to me. I hope you feel it too :>
+
+At moments, I keep gratitude inside. For your patience, understanding, and efforts, I sometimes remain quiet. I hope my actions show how much I appreciate you, everything you do matters.
+
+Sometimes I can’t admit how scared I feel. Fear of losing what we have or of making mistakes keeps me silent. I hope you trust that my silence isn’t distance. I just need time to process.
+
+Other feelings are too big for words. Deep admiration, care, and love sometimes feel overwhelming. I hope my actions express them instead. I try to show it in ways you can feel.
+
+Moments when I notice your habits and quirks make me smile inside. I treasure those details. they make you uniquely you. I hope you know how much I notice ;>.
+
+Sometimes I stay quiet because opening my heart feels big. Sharing everything at once is hard, even with someone I trust. I hope you know it doesn’t mean I don’t care—it just means I’m learning to share slowly.
+
+Your happiness matters to me more than I can say. Seeing you smile fills me with quiet warmth. I hope you feel my care, even when I don’t speak. You deserve joy every single day.
+
+Admiration for your determination and kindness often stays inside. Watching you inspires me more than I can say. I hope my respect comes across even in silence. You make me proud every day.
+
+There are moments I don’t express how much I value our bond. I assume you know, but I want to remember it too. My presence, attention, and care try to show it. We’ve built something meaningful together.
+
+Sometimes I can’t admit my own insecurities around you. My doubts and fears stay inside. I hope you never mistake my silence for indifference, haaa. It’s just me protecting our peace.
+
+Even the smallest things you do mean a lot to me, even if I don’t say it. Every kind word and little gesture stays with me. I hope you see that I notice and appreciate everything, you never go unnoticed.
+
+Sometimes I’m difficult, and I hope you know I’m trying. My emotions can get the best of me, but I’m learning to handle them better because I care so much about you.
+
+Sometimes I can’t voice how much I wish for your comfort. Seeing you carry so much makes me want to ease it. I hope you feel my care, even if I don’t say it. It’s constant.
+
+Even when words fail me, I hope you feel everything I mean. Love, care, and admiration don’t always need to be spoken. I try to show them in my actions and presence. You mean more to me than I could ever say.`,
+`Letter #23
+Someday, If Life Allows 
+
+Even though we’re young, I sometimes imagine a future with you. Not in a rushed way, but in a quiet, hopeful way. Just thinking about growing together makes me smile. I like picturing us learning, laughing, and figuring things out side by side :>.
+
+There are moments I wonder what it would be like to face challenges together. Life won’t always be easy, and mistakes are inevitable. Even then, I hope we can support each other. That thought makes me feel comforted.
+
+I like imagining us celebrating small victories together. Passing a test, achieving a goal, or finishing something we’ve worked hard on. Sharing those moments would make them feel bigger. I hope we can always cheer each other on.
+
+Some days I notice how strong our connection already feels. It’s in the little things we share and the care we show each other. Those moments mean more to me than I expected. I hope we keep growing closer.
+
+Sometimes I think about all the adventures we could have. Trips, walks, or even quiet days at home. They might seem ordinary, but with you, they feel special. I hope we get to share many of those moments in the future.
+
+I hope we always find ways to understand each other. Differences, disagreements, or misunderstandings are part of life. I hope we learn and grow together through them. That would make us stronger, even young as we are.
+
+Even in moments of distance, I imagine feeling close to you. Missing you doesn’t feel painful, it reminds me how important you are. I hope we always know how to bridge gaps. Our bond can stay strong, even with space sometimes.
+
+It excites me to think of supporting each other’s dreams. School, hobbies, or goals, big or small, I hope we always celebrate them. Encouragement feels like love too. I hope we never stop being each other’s biggest cheerleaders.
+
+At times I imagine trust growing deeper between us. Trusting each other with worries, dreams, and fears. That kind of safety makes love feel calm, not rushed. I hope we always feel secure together.
+
+I like picturing our little routines years from now. Laughing at the same jokes, teasing each other in familiar ways, holding hands, hugging. Tiny habits like these can become lifelong memories. I hope we cherish them.
+
+Even when life feels uncertain, I imagine finding comfort in each other. Challenges will come, but I hope we’ll always choose understanding over pride. Patience and care can carry us far and that thought gives me peace.
+
+It makes me happy to picture us learning from each other. Mistakes, successes, and experiences are all part of growing. I hope we use them to become better, together. Even young as we are, growth can be beautiful <3.
+
+Sometimes I imagine laughing with you years from now. Laughing at old memories, new experiences, and the little things in between. That shared joy feels timeless. I hope it’s something we can keep forever.
+
+Other times I imagine comforting each other in silence. No words, just presence, hugs, and understanding. Those moments can speak louder than anything else. I hope we always make space for that kind of closeness.
+
+Even at our age, I hope we learn patience together. With ourselves, with each other, and with life. Mistakes won’t break us if we keep trying. That thought keeps me calm and hopeful.
+
+I imagine us growing individually but still choosing each other. Dreams, goals, and learning who we are can be separate journeys. But I hope we always meet along the way. That makes being together feel intentional.
+
+Sometimes I think about the future and realize how much I want you by my side. Not because we have to, but because it feels right. Your presence makes life brighter. I hope we always choose to stay close ヾ(≧▽≦*)o
+
+It feels comforting to imagine forgiving mistakes with ease. Misunderstandings and slip-ups are part of learning. I hope we approach them with care, not anger. That makes love feel safe and gentle.
+
+Even though we’re young, I hope we can keep growing together. Learning, laughing, supporting, and loving at our own pace. I hope we cherish this time, this bond, and each other. If the future allows it, I hope you’ll be the one I grow old with; naturally, slowly, and happily.`,
+`Letter #24
+All the Quiet Ways I’ve Loved You
+
+This letter holds everything I have been trying to say. It is built from moments that felt small at first, but over time, they became meaningful. They slowly shaped how I feel about you, and I hope you can feel just how deeply I notice and appreciate everything about you.
+
+I think about how we started and how naturally things grew. Nothing felt forced between us. We just kept choosing to stay, and that choice still matters to me every day. That steady decision has created something rare and comforting.
+
+You showed me that love does not have to be loud. It can be quiet and steady. It can exist in small, consistent gestures, in thoughtfulness and patience. That kind of love feels real to me, and I carry it in my heart.
+
+Being with you has taught me that I am easy to love. I have learned that care can be given without conditions. I have learned that accepting love is not weakness; it is part of being human, and I am grateful to experience it with you.
+
+I notice the little things about you. The way your eyes soften when you’re thinking. The small smiles you give when you’re pleased. The gentle way you reach for me, the care in your touch. Those tiny gestures linger with me long after the moment passes.
+
+I notice your expressions, your smirk, your raised eyebrow, the way your voice changes when you’re excited. Each detail is unique to you, and I treasure them all. They are a map of the person I have come to love deeply.
+
+I notice the way you are affectionate. The way you hold my hand, the gentle kisses, the calm assurance in your gestures. Every touch feels intentional, sincere, and meaningful. It reminds me that love doesn’t have to be loud to matter.
+
+Our conversations matter deeply to me. Long talks, short talks, even comfortable silences; they all make me feel closer to you. Just being near you is enough. I notice the safety and warmth that exists naturally when we are together.
+
+Quality time with you is never wasted. Doing nothing together feels like everything. Sitting side by side, sharing space, enjoying moments quietly, they all matter, and I hold them close to my heart.
+
+I love how we find time for each other even when life is busy. We steal small moments between responsibilities. Those moments feel intimate and personal, and I hope we continue to make many more like them in the years ahead.
+
+Physical comfort with you means more than I can say. A hug when one of us feels tired, leaning together, holding hands; it brings calm, reassurance, and warmth. I notice and treasure the safety it gives.
+
+Sometimes we comfort each other without words. A presence alone can communicate love, care, and understanding. A small touch, a hug, or just sitting together quietly says more than words ever could. I notice and feel it deeply.
+
+We have had misunderstandings and quiet days. Silence can be hard for me, but I still choose you. I stay because you matter, and because what we share is worth the patience, effort, and understanding.
+
+The waiting during those moments teaches me patience. It shows how much I care, how much I want to nurture our love. It reminds me that love is a decision, and I continue to make that decision, every day.
+
+I admire your responsibility. The way you keep your word, follow through, and consider how your actions affect others shows your thoughtfulness. I notice it, and I respect it more than I can say.
+
+I admire your resilience. You face challenges with kindness and strength. Hardships never make you cold; they make you more understanding, more empathetic, more you. I notice how rare and beautiful that is.
+
+I admire your sincerity. Everything you do comes from a real place. You do not pretend, and that honesty makes it easy to trust and love you. I notice how that integrity touches everything you do.
+
+I admire your desire to grow. You strive to be better, not only for yourself but for the people you care about. Your effort does not go unnoticed. I notice and appreciate it in ways I cannot always express.
+
+I notice how all your qualities connect. Your kindness, your strength, your thoughtfulness, they blend together, creating someone I respect, admire, and love deeply. You have shown me what it means to be steady, thoughtful, and caring.
+
+You’ve changed how I understand love. I used to think love had to be grand, loud, or dramatic. But with you, I’ve learned that love lives in quiet consistency, small gestures, thoughtfulness, and care.
+
+Love feels simpler with you. It doesn’t feel confusing or forced. It feels steady, safe, and real. That makes it easy to hold onto, and it makes me cherish it more with each passing day.
+
+I think about the future you are growing into. The people you will continue to care for, the moments you will shape with your kindness, and the life you are building. I hope your heart always remains as generous and warm as it is now.
+
+We are young, and life is still unfolding. Nothing is promised. But I hope for many years together, for laughter, quiet nights, shared adventures, and countless moments where we notice and appreciate each other. That hope feels honest.
+
+I imagine growing older with you. I imagine change, and still, you are there. That thought brings comfort. It makes me feel grounded and safe, knowing we will continue to share life, notice each other, and support each other.
+
+I notice all that you do, big and small. Every act of care, every moment you think of others, every gesture of kindness, it stays with me. It reminds me how lucky I am to have someone like you in my life <3.
+
+This letter is a summary of everything I feel. It is built from moments, choices, noticing, and appreciation. It is simple, sincere, and deeply meant for you, Samm.
+
+I love you for who you are, for how you show up, and for the quiet ways you care. I love you for the moments we share, the little things I notice, and the bond we continue to build. I choose you, today, tomorrow, and for all the years we are blessed to share together :3.`
+  ];
+
+     let current = 0;
+
+  const lettersToUnlockPoems = 24; // Poems unlocked after letter #24
+
+  function openLetters() {
+    document.getElementById("lettersSection").style.display = "block";
+    buildBubbles();
+    showLetter(0);
+    generateFloating();
+  }
+
+  function buildBubbles() {
+    const grid = document.getElementById("bubbleGrid");
+    grid.innerHTML = "";
+    letters.forEach((_, i) => {
+      const div = document.createElement("div");
+      div.className = "bubble";
+      div.innerText = `#${i + 1}`;
+      div.onclick = () => showLetter(i);
+      grid.appendChild(div);
+    });
+  }
+
+  function showLetter(index) {
+    current = index;
+    const box = document.getElementById("letterBox");
+    const nextBtn = document.getElementById("nextLetterBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const poemsBtn = document.getElementById("poemsArrow");
+
+    box.innerText = letters[index];
+    box.scrollTop = 0;
+    nextBtn.style.display = "none";
+
+    // Prev button always visible but disabled on first letter
+    prevBtn.disabled = (current === 0);
+
+    // Show next button only when scrolled to bottom & not last letter
+    box.onscroll = () => {
+      if (box.scrollTop + box.clientHeight >= box.scrollHeight - 10 && current < letters.length - 1) {
+        nextBtn.style.display = "block";
+      } else {
+        nextBtn.style.display = "none";
+      }
+    };
+
+    // Unlock poems button if current letter >= required
+    if (current + 1 >= lettersToUnlockPoems) {
+      poemsBtn.classList.add("unlocked");
+      poemsBtn.onclick = () => window.location.href = "poems.html";
+    }
+  }
+
+  function nextLetter() {
+    if (current < letters.length - 1) {
+      showLetter(current + 1);
+    }
+  }
+
+  function prevLetter() {
+    if (current > 0) {
+      showLetter(current - 1);
+    }
+  }
+
+  function generateFloating() {
+    const bg = document.getElementById("floatingBg");
+    const emojis = [];
+    for (let i = 0; i < 20; i++) emojis.push('🐱');
+    for (let i = 0; i < 10; i++) emojis.push('💖');
+    emojis.push("MWAA");
+
+    emojis.forEach(e => {
+      const div = document.createElement("div");
+      div.className = "float";
+      div.innerText = e;
+      div.style.left = Math.random() * 100 + "%";
+      div.style.fontSize = (10 + Math.random() * 30) + "px";
+      div.style.opacity = 0.12 + Math.random() * 0.2;
+      div.style.animationDuration = 15 + Math.random() * 20 + "s";
+      div.style.top = Math.random() * 100 + "vh";
+      bg.appendChild(div);
+    });
+  }
+</script>
+
+</body>
+</html>
