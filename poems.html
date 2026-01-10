@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Poems</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #f7e9f0, #e8f0ff);
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+
+    .poem-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center; /* center poem list section titles */
+    }
+
+    .poem-section h2 {
+      margin-bottom: 15px;
+    }
+
+    .poem-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      justify-items: center; /* center the bubbles/grid items */
+    }
+
+    .poem-list li {
+      background: #fff;
+      padding: 15px 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+      text-align: center; /* center text in the list item */
+      max-width: 200px;
+    }
+
+    .poem-list li:hover {
+      transform: scale(1.05);
+      background: #ffebf0;
+    }
+
+    /* Poem modal */
+    .poem-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      max-width: 700px;
+      max-height: 80vh;
+      overflow-y: auto;
+      display: none;
+      z-index: 10;
+      text-align: center; /* center title and content */
+    }
+
+    .poem-box h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .poem-box pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      text-align: center; /* center content */
+      font-family: 'Georgia', serif;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #ffb6c1;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1em;
+      line-height: 1;
+    }
+
+    /* Overlay for modal */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      display: none;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Poems</h1>
+</header>
+
+<div class="poem-section">
+  <h2>Tagalog Poems</h2>
+  <ul class="poem-list" id="tagalogList"></ul>
+</div>
+
+<div class="poem-section">
+  <h2>English Poems</h2>
+  <ul class="poem-list" id="englishList"></ul>
+</div>
+
+<!-- Poem modal -->
+<div class="overlay" id="overlay"></div>
+<div class="poem-box" id="poemBox">
+  <button class="close-btn" onclick="closePoem()">×</button>
+  <h3 id="poemTitle"></h3>
+  <pre id="poemContent"></pre>
+</div>
+
+<script>
+  // ===== PLACEHOLDER POEMS =====
+  const tagalogPoems = [
+    { title: "Tula 1", content: "Nilalaman ng Tula 1..." },
+    { title: "Tula 2", content: "Nilalaman ng Tula 2..." },
+    { title: "Tula 3", content: "Nilalaman ng Tula 3..." },
+    { title: "Tula 4", content: "Nilalaman ng Tula 4..." },
+    { title: "Tula 5", content: "Nilalaman ng Tula 5..." },
+    { title: "Tula 6", content: "Nilalaman ng Tula 6..." },
+    { title: "Tula 7", content: "Nilalaman ng Tula 7..." },
+    { title: "Tula 8", content: "Nilalaman ng Tula 8..." },
+    { title: "Tula 9", content: "Nilalaman ng Tula 9..." },
+    { title: "Tula 10", content: "Nilalaman ng Tula 10..." }
+  ];
+
+  const englishPoems = [
+    { title: "Poem 1", content: "Content of Poem 1..." },
+    { title: "Poem 2", content: "Content of Poem 2..." },
+    { title: "Poem 3", content: "Content of Poem 3..." },
+    { title: "Poem 4", content: "Content of Poem 4..." },
+    { title: "Poem 5", content: "Content of Poem 5..." },
+    { title: "Poem 6", content: "Content of Poem 6..." },
+    { title: "Poem 7", content: "Content of Poem 7..." },
+    { title: "Poem 8", content: "Content of Poem 8..." },
+    { title: "Poem 9", content: "Content of Poem 9..." },
+    { title: "Poem 10", content: "Content of Poem 10..." }
+  ];
+
+  const poemBox = document.getElementById("poemBox");
+  const overlay = document.getElementById("overlay");
+  const poemTitle = document.getElementById("poemTitle");
+  const poemContent = document.getElementById("poemContent");
+
+  function buildPoemList(poems, containerId) {
+    const list = document.getElementById(containerId);
+    poems.forEach((poem) => {
+      const li = document.createElement("li");
+      li.innerText = poem.title;
+      li.onclick = () => openPoem(poem);
+      list.appendChild(li);
+    });
+  }
+
+  function openPoem(poem) {
+    poemTitle.innerText = poem.title;
+    poemContent.innerText = poem.content;
+    poemBox.style.display = "block";
+    overlay.style.display = "block";
+  }
+
+  function closePoem() {
+    poemBox.style.display = "none";
+    overlay.style.display = "none";
+  }
+
+  overlay.onclick = closePoem;
+
+  // Build both lists
+  buildPoemList(tagalogPoems, "tagalogList");
+  buildPoemList(englishPoems, "englishList");
+</script>
+
+</body>
+</html>
