@@ -2,225 +2,106 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Letters & Poems</title>
+<title>Letters I Didn't Give, Compiled</title>
+
 <style>
   body {
+    font-family: Georgia, serif;
+    background: linear-gradient(to right, #fde2e4, #e0e7ff);
     margin: 0;
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #f7e9f0, #e8f0ff);
-    color: #333;
-    padding-bottom: 100px;
-    overflow-x: hidden;
+    padding: 40px;
   }
 
-  header {
-    text-align: center;
-    padding: 40px 20px 20px;
-  }
-
-  header h1 {
-    font-size: 2.2em;
-  }
-
-  /* ===== LETTER LIST ===== */
-  .letter-section {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+  h1 {
     text-align: center;
   }
 
-  .letter-list {
+  .letters {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-    gap: 15px;
-    justify-items: center;
-    list-style: none;
-    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 40px auto;
   }
 
-  .letter-list li {
-    background: #fff;
+  .bubble {
+    background: white;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    height: 90px;
+    width: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    font-weight: bold;
   }
 
-  .letter-list li:hover {
-    transform: scale(1.1);
-    background: #ffebf0;
-  }
-
-  /* ===== LETTER CONTENT BOX ===== */
-  .letter-box {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 80%;
-    background: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  /* overlay */
+  #overlay {
     display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
     z-index: 10;
   }
 
-  .letter-box h3, .letter-box p {
-    margin: 5px 0;
-    text-align: center;
-  }
-
-  /* ===== POEMS ===== */
-  .poem-section {
-    max-width: 900px;
-    margin: 50px auto 20px;
-    text-align: center;
-  }
-
-  .poem-list {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
-    justify-items: center;
-  }
-
-  .poem-list li {
-    background: #fff;
-    padding: 15px 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
-    max-width: 200px;
-    text-align: center;
-  }
-
-  .poem-list li:hover {
-    transform: scale(1.05);
-    background: #ffebf0;
-  }
-
-  /* MODAL POEM */
-  .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.3);
+  /* letter box */
+  #letterBox {
     display: none;
-    z-index: 5;
-  }
-
-  .poem-box {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 50px 30px 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    max-width: 700px;
-    max-height: 80vh;
-    overflow: hidden;
-    display: none;
-    z-index: 10;
-    text-align: center;
-  }
-
-  .poem-box h3 { margin-top: 0; margin-bottom: 10px; }
-  .poem-box pre {
-    max-height: 60vh;
+    background: white;
+    width: 70%;
+    max-width: 600px;
+    max-height: 70vh;
     overflow-y: auto;
-    white-space: pre-wrap;
-    font-family: 'Georgia', serif;
-    text-align: center;
-    margin: 0;
+    padding: 30px;
+    border-radius: 20px;
+    z-index: 11;
   }
 
   .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: #fff;
+    position: sticky;
+    top: 0;
+    float: right;
+    background: #ffd6e0;
     border: none;
     border-radius: 50%;
-    width: 34px;
-    height: 34px;
-    font-size: 20px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
-    z-index: 20;
-    transition: background 0.2s ease;
+    font-size: 18px;
   }
 
-  .close-btn:hover { background: #ffb6c1; }
-
-  .done-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    padding: 12px 28px;
-    border-radius: 25px;
-    border: none;
+  .close-btn:hover {
     background: #ffb6c1;
-    font-size: 1em;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 
-  /* Floating MWAA and cats */
-  .floating { 
-    position: fixed; 
-    font-size: 18px; 
-    opacity: 0.2; 
-    user-select: none; 
-    pointer-events: none; 
+  .date {
+    font-size: 14px;
+    opacity: 0.6;
+    margin-bottom: 15px;
   }
 </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Letters I Didn't Give, Compiled</h1>
-  <button onclick="scrollToLetters()" style="background:#ffb6c1;border:none;padding:10px 20px;border-radius:20px;cursor:pointer;">View Letters</button>
-</header>
+<h1>Letters I Didn't Give, Compiled</h1>
 
-<!-- LETTER LIST -->
-<div class="letter-section" id="lettersSection">
-  <ul class="letter-list" id="letterList"></ul>
+<div class="letters" id="lettersGrid"></div>
+
+<div id="overlay" onclick="closeLetter()"></div>
+
+<div id="letterBox">
+  <button class="close-btn" onclick="closeLetter()">×</button>
+  <h2 id="letterTitle"></h2>
+  <div class="date" id="letterDate"></div>
+  <p id="letterContent"></p>
 </div>
-
-<!-- LETTER BOX -->
-<div class="letter-box" id="letterBox">
-  <h3 id="letterTitle"></h3>
-  <p id="letterDate"></p>
-  <p id="letterSubtitle"></p>
-  <pre id="letterContent"></pre>
-</div>
-
-<!-- POEMS -->
-<div class="poem-section">
-  <h2>English Poems</h2>
-  <ul class="poem-list" id="englishList"></ul>
-</div>
-
-<div class="overlay" id="overlay"></div>
-
-<div class="poem-box" id="poemBox">
-  <button class="close-btn" onclick="closePoem()">×</button>
-  <h3 id="poemTitle"></h3>
-  <pre id="poemContent"></pre>
-</div>
-
-<button class="done-btn" onclick="goToEnding()">Done Viewing Everything →</button>
 
 <script>
   const letters = [
@@ -1797,88 +1678,32 @@ Until then, I’ll keep being me—awkward, caring, and hopeful. Just know you�
     
   ];
 
-      const letterList = document.getElementById("letterList");
-  const letterBox = document.getElementById("letterBox");
-  const letterTitle = document.getElementById("letterTitle");
-  const letterDate = document.getElementById("letterDate");
-  const letterSubtitle = document.getElementById("letterSubtitle");
-  const letterContent = document.getElementById("letterContent");
+      const grid = document.getElementById("lettersGrid");
 
-  letters.forEach((letter, i) => {
-    const li = document.createElement("li");
-    li.innerText = `#${i+1}`;
-    li.onclick = () => showLetter(letter);
-    letterList.appendChild(li);
-  });
+letters.forEach((letter, index) => {
+  const div = document.createElement("div");
+  div.className = "bubble";
+  div.innerText = `#${index + 1}`;
+  div.onclick = () => openLetter(letter);
+  grid.appendChild(div);
+});
 
-  function showLetter(letter){
-    letterTitle.innerText = letter.title;
-    letterDate.innerText = letter.date;
-    letterSubtitle.innerText = letter.subtitle;
-    letterContent.innerText = letter.content;
-    letterBox.style.display = "block";
-  }
+function openLetter(letter) {
+  document.getElementById("letterTitle").innerText = letter.title;
+  document.getElementById("letterDate").innerText = letter.date;
+  document.getElementById("letterContent").innerText = letter.content;
+  document.getElementById("overlay").style.display = "block";
+  document.getElementById("letterBox").style.display = "block";
+}
 
-  // ===== POEMS =====
-  const englishPoems = [
-    {
-      title: "Home in Your Smile",
-      content: `Every moment with you feels like home...`
-    },
-    {
-      title: "Sun on Rainy Days",
-      content: `Some days feel gray before I wake...`
-    }
-  ];
-
-  const poemList = document.getElementById("englishList");
-  const poemBox = document.getElementById("poemBox");
-  const overlay = document.getElementById("overlay");
-  const poemTitle = document.getElementById("poemTitle");
-  const poemContent = document.getElementById("poemContent");
-
-  englishPoems.forEach(p => {
-    const li = document.createElement("li");
-    li.innerText = p.title;
-    li.onclick = () => openPoem(p);
-    poemList.appendChild(li);
-  });
-
-  function openPoem(poem){
-    poemTitle.innerText = poem.title;
-    poemContent.innerText = poem.content;
-    poemBox.style.display = "block";
-    overlay.style.display = "block";
-  }
-
-  function closePoem(){
-    poemBox.style.display = "none";
-    overlay.style.display = "none";
-  }
-
-  function goToEnding(){
-    alert("This would go to ending.html"); // replace with actual navigation
-  }
-
-  overlay.onclick = closePoem;
-
-  function scrollToLetters(){
-    document.getElementById("lettersSection").scrollIntoView({behavior:"smooth"});
-  }
-
-  // ===== Floating MWAA and Cats =====
-  const body = document.body;
-  for(let i=0;i<20;i++){
-    const span = document.createElement("span");
-    span.className = "floating";
-    span.innerText = i%2==0?"MWAA":"😺";
-    span.style.top = Math.random()*100+"%";
-    span.style.left = Math.random()*100+"%";
-    span.style.fontSize = 12 + Math.random()*24 + "px";
-    span.style.opacity = 0.1 + Math.random()*0.3;
-    body.appendChild(span);
-  }
+function closeLetter() {
+  document.getElementById("overlay").style.display = "none";
+  document.getElementById("letterBox").style.display = "none";
+}
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
