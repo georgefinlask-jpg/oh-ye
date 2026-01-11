@@ -98,10 +98,14 @@
 
 <div id="letterBox">
   <button class="close-btn" onclick="closeLetter()">×</button>
+
   <h2 id="letterTitle"></h2>
+  <div id="letterSubtitle" style="font-style: italic; opacity: 0.7; margin-bottom: 10px;"></div>
   <div class="date" id="letterDate"></div>
   <p id="letterContent"></p>
 </div>
+
+</body>
 
 <script>
   const letters = [
@@ -109,9 +113,7 @@
 title: "Letter #1",
 date: "July 17, 2025", 
 subtitle: "The day we met and my first impressions o((>ω< ))o",
-content: `
-
-I still remember how we first met, and honestly, it’s funny looking back at it now (not in a bad way, omkiee?).
+content: `I still remember how we first met, and honestly, it’s funny looking back at it now (not in a bad way, omkiee?).
 
 During EDGE, I didn’t like you at first. (At first lang pod, karon kay more than like naman, HAHA.) Mostly because my friend didn’t like you, and I just went along with that. I never thought we’d end up being friends, ESPECIALLYY not the way we are now. Back then, you were just someone I didn’t pay much attention to. 🤯
 
@@ -130,8 +132,7 @@ And now, thinking about how it all started, I can’t help but smile. From disli
 title: "Letter #2",
 date: "August 27, 2025",
 subtitle: "Why I Chose You",
-content: `
-I didn’t want to be in a relationship ever again. Not for a short while, not for a long while, not casually, and not seriously. I had been through experiences before that left me drained and hesitant. I was afraid that if I let myself love again, I might end up hurting myself, repeating past mistakes that I had struggled to move on from.
+content: `I didn’t want to be in a relationship ever again. Not for a short while, not for a long while, not casually, and not seriously. I had been through experiences before that left me drained and hesitant. I was afraid that if I let myself love again, I might end up hurting myself, repeating past mistakes that I had struggled to move on from.
 
 Yet, when I met you, something changed, yie haha. There was a subtle pull I couldn’t ignore, a feeling I hadn’t experienced in a long time. I didn’t immediately understand it, and perhaps I still can’t fully explain it, but it was strong enough to make me notice you in a way I hadn’t noticed anyone else.
 
@@ -166,8 +167,7 @@ So yes, I chose you, not lightly, not impulsively, and not without thought. I ch
 title: "Letter #3",
 date: "August 29, 2025",
 subtitle: "Little Things You Do",
-content: `
-It’s amazing how the little things you do mean so much. Things that might seem ordinary to anyone else, but sa ako, they’re everything. Like the way you approach me just to say hi, even when busy or tired ka. It’s such a simple gesture, but it makes me feel seen and remembered, and yes, it makes my day. 
+content: `It’s amazing how the little things you do mean so much. Things that might seem ordinary to anyone else, but sa ako, they’re everything. Like the way you approach me just to say hi, even when busy or tired ka. It’s such a simple gesture, but it makes me feel seen and remembered, and yes, it makes my day. 
 
 I love how you check up on me, even for the smallest reasons. When you notice I’m quiet or a little off, and you ask if I’m okay, it feels like you genuinely care. It’s not forced, not an obligation, it’s you being you, noticing me, and that means more than I can explain.
 
@@ -200,8 +200,7 @@ Honestly, I think it’s these moments, every laugh, every gesture, every act of
 title: "Letter #4",
 date: "September 3, 2025",
 subtitle: "On Your Tough Days",
-content: `
-I know that even the strongest people have tough days. Even you.
+content: `I know that even the strongest people have tough days. Even you.
 
 On those days, I notice. You talk less than usual, your energy feels low, and I can see the sadness in your eyes. I notice even when you try to hide it.
 
@@ -236,8 +235,7 @@ Because even on the hardest days, you are strong, capable, and loved. You’re d
 title: "Letter #5",
 date: "September 3, 2025",
 subtitle: "On Your Bright Days",
-content: `
-On your bright days, I notice how alive you are. Your energy fills the room, and it’s impossible not to smile when I see you genuinely happy. The way you carry yourself, light-hearted yet confident, makes everything around you feel lighter too :>.
+content: `On your bright days, I notice how alive you are. Your energy fills the room, and it’s impossible not to smile when I see you genuinely happy. The way you carry yourself, light-hearted yet confident, makes everything around you feel lighter too :>.
 
 I’m sooo proud of how hard you try every day, even when things get tough. Your effort, consistency, and determination never go unnoticed. Watching you push through challenges inspires me more than I can express. It reminds me that perseverance is something truly admirable.
 
@@ -274,8 +272,7 @@ Through it all, I want you to know: I see you, I appreciate you, and I’m proud
 title: "Letter #6", 
 date: "September 5, 2025",
 subtitle: "What You’ve Taught Me",
-content: `
-Life with you has taught me that learning isn’t only from books or school. It’s in the quiet moments, the conversations we share, and the way you make me feel seen. I’ve realized that lessons come in many forms, and sometimes the most important ones are about myself. Being around you has opened my eyes to that.
+content: `Life with you has taught me that learning isn’t only from books or school. It’s in the quiet moments, the conversations we share, and the way you make me feel seen. I’ve realized that lessons come in many forms, and sometimes the most important ones are about myself. Being around you has opened my eyes to that.
 
 I’ve realized that I’m easy to love, and that someone can care for me genuinely, without conditions. You’ve shown me that love can be simple, steady, and sincere. Accepting care and affection doesn’t make me weak, it makes me human. I finally see how worth it it is to let someone in.
 
@@ -308,8 +305,7 @@ Most of all, you’ve shown me that love doesn’t have to be complicated to be 
 title: "Letter #7",
 date: "September 11, 2025",
 subtitle: "Why I Feel at Home With You",
-content: `
-I feel at home with you because being with you never feels forced. I don’t have to pretend, impress, or constantly explain myself. I can just exist as I am, and that alone makes me feel safe.
+content: `I feel at home with you because being with you never feels forced. I don’t have to pretend, impress, or constantly explain myself. I can just exist as I am, and that alone makes me feel safe.
 
 There’s comfort in the way you listen. You don’t rush me, don’t judge my thoughts, and don’t make me feel small for feeling the way I do. Even in silence, I feel understood.
 
@@ -334,8 +330,7 @@ Home isn’t always a place. Sometimes, it’s a person. And with you, I’ve fo
 title: "Letter #8",
 date: "September 22, 2025",
 subtitle: "The Moments Only We Get",
-content: `
-There are moments we share that no one else really sees. Small, quiet moments that might look ordinary from the outside, but feel special to us. They’re the kind of moments that only happen when two people understand each other deeply. Moments that are ours alone, even if they go unnoticed by everyone else.
+content: `There are moments we share that no one else really sees. Small, quiet moments that might look ordinary from the outside, but feel special to us. They’re the kind of moments that only happen when two people understand each other deeply. Moments that are ours alone, even if they go unnoticed by everyone else.
 
 I love the way our conversations flow, even when they start as nonsense, HAHA. One minute we’re laughing at something silly, and the next we’re sharing thoughts we don’t tell anyone else. That shift, that comfort, makes me feel closer to you than words can describe.
 
@@ -374,8 +369,7 @@ And that’s why I cherish every single one of them. The moments we only get, wi
 title: "Letter #9",
 date: "September 24, 2025",
 subtitle: "What I Admire About You",
-content: `
-What I admire most about you is the way you keep trying, even when things aren’t easy. You don’t give up when things get heavy; you push through quietly, without needing praise or attention. That kind of strength is rare, and it says so much about who you are.
+content: `What I admire most about you is the way you keep trying, even when things aren’t easy. You don’t give up when things get heavy; you push through quietly, without needing praise or attention. That kind of strength is rare, and it says so much about who you are.
 
 I admire your dedication to your responsibilities. Whether it’s academics, family, or the people you care about, you take everything seriously. You don’t do things halfway, and your effort shows in everything you accomplish. :>
 
@@ -410,8 +404,7 @@ All of this together makes you someone truly special, kind, strong, thoughtful, 
 title: "Letter #10", 
 date: "September 25, 2025",
 subtitle: "When I Miss You",
-content: `
-When I miss you, it comes quietly at first. It sneaks into my thoughts when I least expect it. A small reminder, a passing memory, or something that feels familiar suddenly makes my chest feel heavy. That’s when I realize how much space you take in my heart.
+content: `When I miss you, it comes quietly at first. It sneaks into my thoughts when I least expect it. A small reminder, a passing memory, or something that feels familiar suddenly makes my chest feel heavy. That’s when I realize how much space you take in my heart.
 
 Sometimes, missing you feels like a pause in the day. Everything keeps moving, but I slow down just a little. My mind drifts to you without effort, like it already knows where it wants to go hahsdha. You become the thought I return to again and againnn.
 
@@ -448,8 +441,7 @@ When I miss you, I hold onto the certainty that you’re worth it. Every longing
 title: "Letter #11",
 date: "September 29, 2025",
 subtitle: "How You Changed Me",
-content: `
-You’ve changed me in ways I didn’t even realize until now. I feel softer, more patient, and more understanding because of you. You’ve taught me to see the good in small things, and to appreciate quiet moments. Life feels different with you in it, richer, warmer, and calmer.
+content: `You’ve changed me in ways I didn’t even realize until now. I feel softer, more patient, and more understanding because of you. You’ve taught me to see the good in small things, and to appreciate quiet moments. Life feels different with you in it, richer, warmer, and calmer.
 
 I’ve learned to trust more openly. I no longer hesitate to share my thoughts or feelings, even the messy ones. You’ve shown me that being vulnerable doesn’t make me weak. That lesson has shifted the way I connect with everyone, not just you.
 
@@ -490,8 +482,7 @@ Finally, you’ve changed me by showing me love’s simplicity. It’s not drama
 title: "Letter #12",
 date: "September 30, 2025",
 subtitle: "Dreaming About Your Future",
-content: `
-I often imagine your future, and it fills me with warmth and hope. I picture the things you’ll accomplish, the challenges you’ll overcome, and the happiness you’ll create for yourself. I hope every step you take leads you closer to the life you want. Imagining it makes me proud already, even before it happens :D.
+content: `I often imagine your future, and it fills me with warmth and hope. I picture the things you’ll accomplish, the challenges you’ll overcome, and the happiness you’ll create for yourself. I hope every step you take leads you closer to the life you want. Imagining it makes me proud already, even before it happens :D.
 
 I dream of your success in everything you work hard for. Academics, hobbies, personal goals, I see you thriving in all of them. You have the dedication and intelligence to achieve so much. I can’t wait to see all the ways you grow ^_^.
 
@@ -536,8 +527,7 @@ Finally, I imagine your future with hope, pride, and love. I see you happy, acco
 title: "Letter #13",
 date: "October 3, 2025",
 subtitle: "Why Loving You Feels Easy", 
-content: `
-Loving you feels natural, like it’s always been a part of me. It doesn’t require overthinking or forcing anything. With you, it flows effortlessly, quietly, and genuinely. That ease is rare, and I treasure it every day.
+content: `Loving you feels natural, like it’s always been a part of me. It doesn’t require overthinking or forcing anything. With you, it flows effortlessly, quietly, and genuinely. That ease is rare, and I treasure it every day.
 
 I feel at peace when I’m with you. There’s no need to fake anything, no need to hide my thoughts or feelings. I can be completely myself, and you accept it. That acceptance makes loving you effortless.
 
@@ -582,8 +572,7 @@ Lastly, loving you feels easy because it’s real. No drama, no pretenses, no fo
 title: "Letter #14",
 date: "October 22, 2025",
 subtitle: "Promises I Want to Keep",
-content: `
-I promise to try my best for you, in ways that I am able to give right now. Not perfectly, not endlessly, but honestly. I want to show up with sincerity, even as I’m still learning. That effort is something I can promise :>.
+content: `I promise to try my best for you, in ways that I am able to give right now. Not perfectly, not endlessly, but honestly. I want to show up with sincerity, even as I’m still learning. That effort is something I can promise :>.
 
 I promise to listen when you want to talk, and to be present when you need company. I won’t always know the right words, but I’ll care enough to hear you out. Your thoughts and feelings matter to me. I want you to feel that consistently.
 
@@ -628,8 +617,7 @@ Right now, I promise to love you in the best way I know how. Not perfectly, not 
 title: "Letter #15",
 date: "October 27, 2025",
 subtitle: "The Things I Fear Losing",
-content: `
-There are things about us that I hold very close, and one of them is the safety you give me. Your presence has a way of calming me, even on busy or overwhelming days. Just knowing you’re there brings comfort. I can’t imagine not having that :<.
+content: `There are things about us that I hold very close, and one of them is the safety you give me. Your presence has a way of calming me, even on busy or overwhelming days. Just knowing you’re there brings comfort. I can’t imagine not having that :<.
 
 I also treasure the routines we’ve built without even noticing. The messages, the laughter, the random jokes that slip into the day. They seem small, but they brighten everything. Losing those quiet constants would leave an emptiness I’d feel right away.
 
@@ -674,8 +662,7 @@ I think about change, distance, and time, and how they can slowly shift things. 
 title: "Letter #16",
 date: "October 28, 2025",
 subtitle: "For When You Doubt Yourself",
-content: `
-It’s okay to feel uncertain sometimes, Sam. Everyone has moments where they question themselves or their choices. That doesn’t mean you’re failing or weak. Those doubts are just part of being human :). 
+content: `It’s okay to feel uncertain sometimes, Sam. Everyone has moments where they question themselves or their choices. That doesn’t mean you’re failing or weak. Those doubts are just part of being human :). 
 
 I want you to remember how capable you really are. Even when things feel hard, you’ve overcome challenges before. You have the strength and skill to handle what comes next. Trust yourself, even if it feels scary.
 
@@ -718,8 +705,7 @@ Above all, remember that I believe in you. Even when you doubt yourself, I see y
 title: "Letter #17",
 date: "October 28, 2025",
 subtitle: "Thank You",
-content: `
-Being around you makes even normal days feel special. Your presence brings warmth I didn’t know I needed. Every little thing you do adds meaning to my life. I’m grateful for it more than I can say.
+content: `Being around you makes even normal days feel special. Your presence brings warmth I didn’t know I needed. Every little thing you do adds meaning to my life. I’m grateful for it more than I can say.
 
 When I need to talk, you’re always willing to listen. No judgment, no rush, just attention and care. That makes me feel safe and understood. It’s a comfort I don’t take for granted.
 
@@ -764,8 +750,7 @@ Having you in my life makes everything better. Simple days feel brighter, and ha
 title: "Letter #18",
 date: "October 31, 2025",
 subtitle: "The Things I Love About You",
-content: `
-One of the first things I noticed about you was your kindness. You show care in quiet ways. Small actions, done sincerely, say a lot about you. Knowing you makes me feel lucky.
+content: `One of the first things I noticed about you was your kindness. You show care in quiet ways. Small actions, done sincerely, say a lot about you. Knowing you makes me feel lucky.
 
 You make me laugh without trying too hard. Your humor feels natural and light. Even ordinary or stressful days feel easier with you around. I enjoy those moments so much.
 
@@ -810,8 +795,7 @@ Most of all, I love having you in my life. Your presence makes days better, I no
 title: "Letter #19",
 date : "November 3, 2025",
 subtitle: "Hopes for Us",
-content: `
-I hope you share what’s on your mind more often. Even small thoughts matter to me, and hearing them makes me feel closer to you. I want to understand you better.
+content: `I hope you share what’s on your mind more often. Even small thoughts matter to me, and hearing them makes me feel closer to you. I want to understand you better.
 
 I hope you let yourself ask for help sometimes. You don’t have to carry everything alone. Letting someone in doesn’t take away your strength, and I want to be someone you can lean on.
 
@@ -848,8 +832,7 @@ I hope we keep learning and growing together, enjoying the little moments, and s
 title: "Letter #20",
 date: "November 6, 2025",
 subtitle: "What I Want You to Know",
-content: `
-Sometimes it annoyed me when it felt like you didn’t come closer when I needed you. Even small moments, like when I reached out, it seemed like you weren’t sure how to respond. Being called “desperate” for caring made me overthink even more and feel a little hurt. I just wished you noticed and reached back, even in a small way, because it mattered to me.
+content: `Sometimes it annoyed me when it felt like you didn’t come closer when I needed you. Even small moments, like when I reached out, it seemed like you weren’t sure how to respond. Being called “desperate” for caring made me overthink even more and feel a little hurt. I just wished you noticed and reached back, even in a small way, because it mattered to me.
 
 There were times I felt left wondering about your thoughts or feelings. Not knowing where we stood made me anxious and overanalyze everything. I know you didn’t mean to make me feel that way, but I want you to understand how confusing it was for me. A little clarity or reassurance would have gone a long way.
 
@@ -868,8 +851,7 @@ And now, it’s okay. Those little annoyances belong to the past, and they don�
 title: "Letter #21",
 date: "November 17, 2025",
 subtitle: "When We Don’t Talk",
-content: `
-Silence between us can feel heavy sometimes. I notice the quiet moments and start wondering what you’re thinking. Even if it’s nothing serious, my mind starts overthinking, and I wish I could feel closer to you, even in the quiet.
+content: `Silence between us can feel heavy sometimes. I notice the quiet moments and start wondering what you’re thinking. Even if it’s nothing serious, my mind starts overthinking, and I wish I could feel closer to you, even in the quiet.
 
 Not talking makes me miss the little things about you; your jokes, your teasing, your voice. I realize how much I take those moments for granted, and it makes me appreciate you more when we finally do speak.
 
@@ -910,8 +892,7 @@ And in the end, I remind myself that it’s okay when we don’t talk sometimes.
 title: "Letter #22",
 date: "November 18, 2025",
 subtitle: "The Silent Thoughts I’d Like You to Know",
-content: `
-Sometimes I struggle to put my thoughts into words. It’s not because I don’t trust you, but because I fear they might sound too much. My thoughts pile up, and I don’t know where to start. I hope you understand that silence doesn’t mean I don’t care.
+content: `Sometimes I struggle to put my thoughts into words. It’s not because I don’t trust you, but because I fear they might sound too much. My thoughts pile up, and I don’t know where to start. I hope you understand that silence doesn’t mean I don’t care.
 
 I often wish I could tell you how proud I am of you. You try so hard, and sometimes I just want to shout it out. But I keep it in, thinking you already know. I hope you can feel it even without words.
 
@@ -956,8 +937,7 @@ Even when words fail me, I hope you feel everything I mean. Love, care, and admi
 title: "Letter #23",
 date: "November 19, 2025",
 subtitle: "Someday, If Life Allows",
-content: `
-Even though we’re young, I sometimes imagine a future with you. Not in a rushed way, but in a quiet, hopeful way. Just thinking about growing together makes me smile. I like picturing us learning, laughing, and figuring things out side by side :>.
+content: `Even though we’re young, I sometimes imagine a future with you. Not in a rushed way, but in a quiet, hopeful way. Just thinking about growing together makes me smile. I like picturing us learning, laughing, and figuring things out side by side :>.
 
 There are moments I wonder what it would be like to face challenges together. Life won’t always be easy, and mistakes are inevitable. Even then, I hope we can support each other. That thought makes me feel comforted.
 
@@ -1000,8 +980,7 @@ Even though we’re young, I hope we can keep growing together. Learning, laughi
 title: "Letter #24",
 date: "November 21, 2025",
 subtitle: "All the Quiet Ways I’ve Loved You",
-content: `
-This letter holds everything I have been trying to say. It's built from moments that felt small at first, but over time, they became meaningful. They slowly shaped how I feel about you, and I hope you can feel just how deeply I notice and appreciate everything about you.
+content: `This letter holds everything I have been trying to say. It's built from moments that felt small at first, but over time, they became meaningful. They slowly shaped how I feel about you, and I hope you can feel just how deeply I notice and appreciate everything about you.
 
 I think about how we started and how naturally things grew. Nothing felt forced between us. We just kept choosing to stay, and that choice still matters to me every day. That steady decision has created something rare and comforting.
 
@@ -1060,8 +1039,7 @@ I love you for who you are, for how you show up, and for the quiet ways you care
 title: "Letter #25",
 date: "November 29, 2025",
 subtitle: "You’re Ghosting Me, So Here I Am",
-content: `
-I still catch myself wanting to check on you, even when I know it won’t change anything. It’s like a reflex I haven’t unlearned yet. Care doesn’t disappear just because it isn’t returned.
+content: `I still catch myself wanting to check on you, even when I know it won’t change anything. It’s like a reflex I haven’t unlearned yet. Care doesn’t disappear just because it isn’t returned.
 
 I open my phone with no real reason, just a quiet hope that today is different. It never is. And every time, a small part of me sinks a little deeper.
 
@@ -1104,8 +1082,7 @@ And if you ever wonder what happened on my side, this is it. I was here. I waite
 title: "Letter #26",
 date: "November 30, 2026",
 subtitle: "Waiting In Silence",
-content: `
-You finally messaged one time, said you weren’t in the right state of mind. Thought you were confused, tired, maybe even lost. It was like a small crack in the wall you built around yourself. For a moment, I thought maybe we could fix this, that maybe you just needed time, not distance. But even with that, the silence didn’t fully break, it just stretched thinner, fragile like glass.
+content: `You finally messaged one time, said you weren’t in the right state of mind. Thought you were confused, tired, maybe even lost. It was like a small crack in the wall you built around yourself. For a moment, I thought maybe we could fix this, that maybe you just needed time, not distance. But even with that, the silence didn’t fully break, it just stretched thinner, fragile like glass.
 
 Knowing you weren’t okay didn’t make the wait easier; it made it heavier. Because caring for someone who’s lost inside themselves feels like chasing shadows. I wanted to hold your hand through the darkness, but you pulled back, probably afraid to let anyone in. That scared me more than the silence ever did. I wasn’t sure if you needed space or if you just didn’t want me at all.
 
@@ -1120,8 +1097,7 @@ Maybe one day you’ll find your way back, and maybe we’ll talk again with ope
 title: "Letter #26",
 date: "December 2, 2025",
 subtitle: "Silence Still Around",
-content: `
-It’s been days now, days where your silence stays the same, even as exams pile up around us. I sit in class, trying to focus on my papers, but all I can think about is how you still won’t say a word. The tension doesn’t ease with time; if anything, it tightens like a noose. I keep hoping that after the exams, things will change, but every day passes with the same cold distance. It’s like time is slipping away, and you’re just letting us fade into silence.
+content: `It’s been days now, days where your silence stays the same, even as exams pile up around us. I sit in class, trying to focus on my papers, but all I can think about is how you still won’t say a word. The tension doesn’t ease with time; if anything, it tightens like a noose. I keep hoping that after the exams, things will change, but every day passes with the same cold distance. It’s like time is slipping away, and you’re just letting us fade into silence.
 
 The exam stress builds, but it’s nothing compared to the ache of waiting for you to break the quiet. Days turn into nights, and still, no message, no word, no sign from you. I wonder if you’re avoiding me or if you don’t care anymore. The unanswered questions pile up as fast as the exams, and I’m left drowning in both. It hurts that even when life gets busy and hard, you still choose to stay distant.
 
@@ -1132,8 +1108,7 @@ I try to tell myself that maybe you’re overwhelmed too, that maybe this silenc
 title: "Letter #27",
 date: "December 3, 2025",
 subtitle: "Silent Eyes, Heavy Heart",
-content: `
-The exam room feels suffocating, but it’s not just the pressure of the test, it’s how every time our eyes meet, silence crashes between us like a tidal wave. I catch you looking, wanting to say something, but the words never come. My heart twists in that frozen moment, aching for connection but drowning in the quiet. That silent stare hits harder than any question on my paper, and I’m left wondering if you even want me near :/.
+content: `The exam room feels suffocating, but it’s not just the pressure of the test, it’s how every time our eyes meet, silence crashes between us like a tidal wave. I catch you looking, wanting to say something, but the words never come. My heart twists in that frozen moment, aching for connection but drowning in the quiet. That silent stare hits harder than any question on my paper, and I’m left wondering if you even want me near :/.
 
 I overthink every glance, watching your eyes like they hold a secret I can’t unlock. Did I say something wrong? Did I do something to push you away? My mind spins in endless loops, dragging me down deeper into doubt. I replay our last conversations, searching for clues I might have missed. Every little moment twists into something bigger, and I can’t stop asking myself: where did I go wrong?
 
@@ -1182,8 +1157,7 @@ I keep hoping the silence will break, that you’ll say something to make the di
 title: "Letter #28",
 date: "December 7, 2025",
 subtitle: "A Rare Warmth I Hold Onto",
-content: `
-We made up a few days ago, and it feels like the air finally cleared after a long storm. The tension that once tightened my chest loosens with every word we exchange now, softening the space between us like sunlight slipping through heavy clouds. Saying sorry wasn’t just a phrase for you; it was a bridge rebuilt with care and honesty, something I didn’t realize I needed until it was there. Since then, everything feels gentler, like the fragile edges of what was broken are now wrapped in understanding and patience. That moment marked a fresh start, rare and precious, and I hold onto it like a secret warmth beneath my skin.
+content: `We made up a few days ago, and it feels like the air finally cleared after a long storm. The tension that once tightened my chest loosens with every word we exchange now, softening the space between us like sunlight slipping through heavy clouds. Saying sorry wasn’t just a phrase for you; it was a bridge rebuilt with care and honesty, something I didn’t realize I needed until it was there. Since then, everything feels gentler, like the fragile edges of what was broken are now wrapped in understanding and patience. That moment marked a fresh start, rare and precious, and I hold onto it like a secret warmth beneath my skin.
 
 Calling you for almost eight hours feels like the most natural thing in the world, even though it’s so rare. Our voices fill the silence that once stretched wide and cold, weaving together stories and laughter that remind me why I cared so much in the first place. Time loses meaning when I’m on the line with you, slipping away in waves of comfort and surprise, like I’m rediscovering a friendship and something more all at once. Each sentence you say carries weight and softness, like you’re telling me you’re really here now, not just in words but in presence. It’s wild how something so simple, just talking, feels like the most healing thing I’ve done in weeks.
 
@@ -1222,8 +1196,7 @@ I don’t know what the future holds, but right now, I’m holding this moment, 
 title: "Letter #29",
 date: "December 12, 2025",
 subtitle: "The Space Between Us Again",
-content: `
-Why did this situation come back again? It’s like we took two steps forward only to fall back into the same mess. I keep asking myself if I’m really the problem this time. Is it something I did, or something I didn’t do? The doubt curls in my chest like smoke, choking me slowly.
+content: `Why did this situation come back again? It’s like we took two steps forward only to fall back into the same mess. I keep asking myself if I’m really the problem this time. Is it something I did, or something I didn’t do? The doubt curls in my chest like smoke, choking me slowly.
 
 I wonder if it’s because I’m always with my friends when you want to talk. Maybe you feel like I’m too distracted or not really “there” for you anymore. But what about when I tell you I love your presence even in the middle of the noise? Why does that seem not enough for you now? It hurts like a fresh wound reopening.
 
@@ -1266,8 +1239,7 @@ So here I am, still asking why, still waiting, still wondering if I’m enough. 
 title: "Letter #30",
 date: "December 13",
 subtitle: "Caught Between Silence and Hope",
-content: `
-Second day of hurting, and honestly, I don’t know what to do anymore. The ache feels heavier today, like it’s sinking deeper into my chest. I keep replaying our last conversations, searching for clues I might have missed, but it’s like they’re written in a language I can’t understand anymore. I want to reach out, but the silence between us feels like a wall I can’t climb over. Every minute without a word feels endless, and I’m left alone with my thoughts.
+content: `Second day of hurting, and honestly, I don’t know what to do anymore. The ache feels heavier today, like it’s sinking deeper into my chest. I keep replaying our last conversations, searching for clues I might have missed, but it’s like they’re written in a language I can’t understand anymore. I want to reach out, but the silence between us feels like a wall I can’t climb over. Every minute without a word feels endless, and I’m left alone with my thoughts.
 
 I’ve been asking your guy friends if they know what’s going on, hoping someone can fill in the blanks. But none of them has a clue. It’s like you’ve disappeared from everyone’s world, not just mine. That makes me wonder if this is more than just a mood, if it’s something bigger you’re battling on your own. I want to be there for you, but you keep pulling away, and I’m left standing outside your storm.
 
@@ -1290,8 +1262,7 @@ So heto ako, caught between holding on and just waiting. I’m learning that som
 title: "Letter #31",
 date: "December 15, 2025",
 subtitle: "When You Stay Silent: The Weight of Your Distance",
-content: `
-I feel really sad because you don’t want to come near me anymore, like there’s a wall you built that I can’t climb. When you say you can’t come closer because I’m with my friends, it hits me harder than I want to admit. I tell you I love your presence even if I’m not alone, but you don’t seem to hear me like before. You weren’t like this at first, and that’s what surprises me most about your reason for not approaching me. Still, I try to respect it, even if it hurts more than I expected.
+content: `I feel really sad because you don’t want to come near me anymore, like there’s a wall you built that I can’t climb. When you say you can’t come closer because I’m with my friends, it hits me harder than I want to admit. I tell you I love your presence even if I’m not alone, but you don’t seem to hear me like before. You weren’t like this at first, and that’s what surprises me most about your reason for not approaching me. Still, I try to respect it, even if it hurts more than I expected.
 
 You say it’s because I’m always “preoccupied” with my friends, and maybe that’s true, but I want you to know that it doesn’t mean I don’t want you close. I keep hoping you’ll make the first move even when I’m surrounded by others, but you never do. I try cutting back on time with them, hoping to be alone so you’ll feel comfortable approaching me again. But even when I’m by myself, you stay glued to your phone or whatever game you’re playing, and you don’t come near. That silence feels heavy, like a loud empty space between us.
 
@@ -1336,8 +1307,7 @@ I’m left wondering if you still want me or if I’m just holding on to a fadin
 title: "Letter #32",
 date: "December 16, 2025",
 subtitle: "Coming Home to Hope",
-content: `
-We’re finally back. That hug earlier felt like a soft reset, like the storm passed and now I’m breathing again. It’s wild how something so simple can carry so much weight, but it did. For the first time in a while, it felt like home again, the place where I belong when everything else is chaos. I’m thankful for this moment, for you, for us trying again.
+content: `We’re finally back. That hug earlier felt like a soft reset, like the storm passed and now I’m breathing again. It’s wild how something so simple can carry so much weight, but it did. For the first time in a while, it felt like home again, the place where I belong when everything else is chaos. I’m thankful for this moment, for you, for us trying again.
 
 I’m grateful I was the first to reach out because it meant I still believe in us, even when it felt like the world didn’t. Taking that step wasn’t easy, but it was necessary. It’s proof that hope isn’t dead, even if it’s been hiding under rubble. I want to fix everything, to sew the tears in our story quickly, but I know healing isn’t a race.
 
@@ -1372,8 +1342,7 @@ Sooo here’s to us, to new beginnings wrapped in old promises. To healing, to h
 title: "Letter #33",
 date: "December 18, 2025",
 subtitle: "Holding On Through the Quiet Storm",
-content: `
-Today’s December 18, and I’m still deep in reflection, thinking about everything that happened, especially those moments when letting go seemed like the easiest way out. Not ending things completely, but just stepping back, taking a break, a cool-off to catch our breaths. It’s strange how most relationships don’t survive those breaks anyway, how the space can sometimes feel like a crack growing wider. But I’m really glad I held on, even when my mind whispered that maybe it was time to give up. That voice was loud sometimes, but my heart was louder.
+content: `Today’s December 18, and I’m still deep in reflection, thinking about everything that happened, especially those moments when letting go seemed like the easiest way out. Not ending things completely, but just stepping back, taking a break, a cool-off to catch our breaths. It’s strange how most relationships don’t survive those breaks anyway, how the space can sometimes feel like a crack growing wider. But I’m really glad I held on, even when my mind whispered that maybe it was time to give up. That voice was loud sometimes, but my heart was louder.
 
 I’m grateful we made it through the storm, because now we get to celebrate the year-end party together. All those photos we took, they’re like little time capsules of joy, moments frozen in laughter and warmth. They remind me of the times when it felt like nothing could break us, like we were invincible even in the face of everything, char haha. I miss you so much, especially when I got home today and everything felt quieter without you beside me. The silence hit different, like a reminder that I want you there, not just in pictures or memories, but right here with me.
 
@@ -1406,8 +1375,7 @@ And no matter what comes next, I’m thankful for this moment, for us being here
 title: "Letter #34",
 date: "December 26, 2025",
 subtitle: "One Year of Us :D",
-content: `
-It’s almost December 27, and I can hardly believe it’s been a whole year since we started this journey together. One year of laughter, tears, fights, and making up. A whole year of learning how to love someone imperfectly but fully. Sometimes it feels like time flew by, and other times it feels like we’ve lived a lifetime in these months. Either way, I’m grateful for every moment with you.
+content: `It’s almost December 27, and I can hardly believe it’s been a whole year since we started this journey together. One year of laughter, tears, fights, and making up. A whole year of learning how to love someone imperfectly but fully. Sometimes it feels like time flew by, and other times it feels like we’ve lived a lifetime in these months. Either way, I’m grateful for every moment with you.
 
 This year has not been easy for us. We’ve faced challenges that tested everything we thought we knew about ourselves and each other. There were days when silence filled the space between us, and it felt like we were drifting apart. But there were also days when our words and touches reminded us why we chose each other in the first place. Through it all, I’ve never stopped hoping for us.
 
@@ -1458,8 +1426,7 @@ Happy almost one year, my love. Here’s to us, to our story, and to many more c
 title: "Letter #35",
 date: "December 27, 2025",
 subtitle: "A Year Together",
-content: `
-Happy 1 year to us, Samm. It feels surreal to think that a whole year has passed since we began this wild, beautiful ride together. We’ve grown through so much—laughter, tears, challenges, and countless memories. Looking back, it’s crazy how far we’ve come from that first day. I’m so grateful we stuck through it all.
+content: `Happy 1 year to us, Samm. It feels surreal to think that a whole year has passed since we began this wild, beautiful ride together. We’ve grown through so much—laughter, tears, challenges, and countless memories. Looking back, it’s crazy how far we’ve come from that first day. I’m so grateful we stuck through it all.
 
 One year of learning to love each other in ways I never imagined possible. It wasn’t always easy, but every struggle taught me something new about you and myself. You showed me patience when I was restless, understanding when I was confused. We both made mistakes, yet here we are, stronger because of them. That strength means the world to me.
 
@@ -1517,15 +1484,14 @@ Thank you for teaching me the power of forgiveness. For helping me let go of gru
 
 I’m proud of the life we’re creating. A life full of love, respect, and understanding. It’s not perfect, but it’s ours. And that makes it beautiful. I’m excited for what comes next.
 
-Happy 1 year, Samm. This is just the beginning. I love you more than words can say. Thank you for being my partner, my friend, my home. Here’s to us—today, tomorrow, always.`
+Happy 1 year, Samm. This is just the beginning. I love you more than words can say. Thank you for being my partner, my friend, my home. Here’s to us, today, tomorrow, always.`
 }, 
 
 {
 title: "Letter #36",
 date: "December 31, 2025",
 subtitle: "New Year, New Dreams: A Letter to You, Samm",
-content: `
-Hey Samm,
+content: `Hey Samm,
 
 As the year comes to a close, I find myself thinking about everything we’ve been through and how much we’ve grown. This past year wasn’t always easy, but we made it through together, stronger and wiser. I want you to know how proud I am of you, of us, and of the love we’ve built. It’s not just about surviving—it’s about thriving, even when things get tough.
 
@@ -1556,8 +1522,7 @@ Happy New Year, Samm. I love you, and I’m excited for everything coming our wa
 title: "Letter #37",
 date: "January 4, 2026",
 subtitle: "Just Thinking About You (And Tomorrow!)",
-content: `
-Today’s January 4, and I’m honestly buzzing knowing I can finally see you tomorrow after such a long break. It feels like forever since we last hung out, and I’ve been counting down the days. I can’t wait to give you the gifts—I seriously took forever thinking about what to get, trying to make it just right. Today’s not anything special, just me sitting here lost in thoughts about you and feeling this warm happiness in my chest. It’s wild to think we’re already over a year in, and honestly, I feel so lucky to be growing with someone as real and steady as you.
+content: `Today’s January 4, and I’m honestly buzzing knowing I can finally see you tomorrow after such a long break. It feels like forever since we last hung out, and I’ve been counting down the days. I can’t wait to give you the gifts—I seriously took forever thinking about what to get, trying to make it just right. Today’s not anything special, just me sitting here lost in thoughts about you and feeling this warm happiness in my chest. It’s wild to think we’re already over a year in, and honestly, I feel so lucky to be growing with someone as real and steady as you.
 
 I keep catching myself replaying little memories—the way you laugh, how your voice sounds when you say my name, even those quiet moments where nothing needs to be said but everything is understood. It’s crazy how just knowing you’re there makes the world feel lighter, like I can handle whatever comes my way. Sometimes I find myself smiling for no reason, and yep, it’s always because of you. I’m lowkey counting down the hours until I get to be with you again, and it’s driving me crazy in the best way.
 
@@ -1577,9 +1542,8 @@ Okay, I’ll stop rambling now, but I just wanted you to know I’m thinking abo
 {
 title: "Letter #38",
 date: "January 5, 2026",
-subtitle: "After 2 Decades, We Met Again B)",
-content: `
-January 5, and yo, we finally met again! I swear, being tapad sa AdTech was lowkey the best part of my day. Like, no exaggeration, just vibing close and feeling that easy comfort we always have. It’s wild how just sitting near you can make everything feel instantly better. I missed this—just the chill, no fuss, just us.
+subtitle: "After 2 Decades, We Meet Again B)",
+content: `January 5, and yo, we finally met again! I swear, being tapad sa AdTech was lowkey the best part of my day. Like, no exaggeration, just vibing close and feeling that easy comfort we always have. It’s wild how just sitting near you can make everything feel instantly better. I missed this—just the chill, no fuss, just us.
 
 I kept catching myself grinning like a dork the whole time. You have this weird power to make me forget all the stress and nonsense for a bit. Honestly, you’re like my favorite distraction, and I’m here for it. I don’t think I’ve smiled that much in a while.
 
@@ -1612,8 +1576,7 @@ Alright, I’m done being cheesy for now. But seriously, see you soon, Samm. Can
 title: "Letter #39",
 date: "January 6, 2026",
 subtitle: "Gifts and Words: A Day That Said ‘I Love You’ <3",
-content: `
-I finally gave you the gifts today, and I’m so happy you loved them. I put a lot of thought into choosing each one, so seeing your smile made it all worth it. It’s crazy how small things can carry so much meaning when they come from the heart. I hope every little piece reminds you how much you mean to me. Honestly, I was a little nervous if you’d like them, but your reaction made me feel so relieved and happy.
+content: `I finally gave you the gifts today, and I’m so happy you loved them. I put a lot of thought into choosing each one, so seeing your smile made it all worth it. It’s crazy how small things can carry so much meaning when they come from the heart. I hope every little piece reminds you how much you mean to me. Honestly, I was a little nervous if you’d like them, but your reaction made me feel so relieved and happy.
 
 Then you surprised me with a gift too—a whole three-page letter. I can’t even begin to explain how much that means to me. Reading your words, feeling your thoughts and feelings laid out like that, it touched me deeply. It’s rare to find someone who expresses themselves so openly, and I love you even more for it. Your letter made me feel seen and understood in ways I can’t fully put into words.
 
@@ -1634,8 +1597,7 @@ Thanks for being you, for every word you wrote, and for every moment we share. T
 title: "Letter #40",
 date: "January 7, 2026",
 subtitle: "Wednesdays",
-content: `
-YAYY WEDNESDAYY! I seriously love Wednesdays now because it’s the day I get to expect my bb time with you. It’s become this little highlight in my week that I look forward to so much. There’s something about knowing we’ll have those sweet, lovey-dovey moments that just makes everything feel better. I’m not even exaggerating when I say it’s like my energy recharges just thinking about it.
+content: `YAYY WEDNESDAYY! I seriously love Wednesdays now because it’s the day I get to expect my bb time with you. It’s become this little highlight in my week that I look forward to so much. There’s something about knowing we’ll have those sweet, lovey-dovey moments that just makes everything feel better. I’m not even exaggerating when I say it’s like my energy recharges just thinking about it.
 
 You’ve always been sweet, but lately? You’ve seriously leveled up. It’s like you took all the good parts from before and just turned them up a notch. I’m not complaining though—more of that please! Your lambing hits different now, and honestly, it’s the best feeling ever. I’m so lucky to have you being this extra adorable.
 
@@ -1658,8 +1620,7 @@ Okay, I’ll stop before I get too sappy, but just know you’re the sweetest, a
 title: "Letter #41",
 date: "January 11, 2026",
 subtitle: "Just Thinking of Youu",
-content: `
-So, I sent that really awkward message last night… yeah, you know the one. I’ve been overthinking every word since I hit send. Like, did I come on too strong? Or maybe I said something weird? Ugh, why do I always do this? But honestly, it was me being real and trying to tell you how much you matter.
+content: `So, I sent that really awkward message last night… yeah. I’ve been overthinking every word since I hit send. Like, did I come on too strong? Or maybe I said something weird? Ugh, why do I always do this? But honestly, it was me being real and trying to tell you how much you matter.
 
 I haven’t gotten a reply yet, and I’m lowkey still waiting, hoping it didn’t mess anything up between us. Silence can be loud sometimes, right? It makes my mind wander to all sorts of places I don’t want it to go. But I’m trying to stay chill and not jump to conclusions.
 
@@ -1675,35 +1636,29 @@ I hope when you’re ready, you’ll reply, and we can talk it out like we alway
 
 Until then, I’ll keep being me—awkward, caring, and hopeful. Just know you’re on my mind, and I’m sending you all the good vibes from here. No pressure, just love.`
 }
-    
   ];
 
-      const grid = document.getElementById("lettersGrid");
+ let currentLetter = 0;
 
-letters.forEach((letter, index) => {
-  const div = document.createElement("div");
-  div.className = "bubble";
-  div.innerText = `#${index + 1}`;
-  div.onclick = () => openLetter(letter);
-  grid.appendChild(div);
-});
+  function showLetter(number) {
+    currentLetter = number - 1;
+    const letter = letters[currentLetter];
+    document.getElementById("letterText").innerHTML = `
+      <h2>${letter.title}</h2>
+      <p><em>${letter.date}</em></p>
+      <h3>${letter.subtitle}</h3>
+      <p>${letter.content}</p>
+    `;
+    document.getElementById("letterContent").style.display = "block";
+    document.getElementById("letterContent").scrollIntoView({ behavior: "smooth" });
+  }
 
-function openLetter(letter) {
-  document.getElementById("letterTitle").innerText = letter.title;
-  document.getElementById("letterDate").innerText = letter.date;
-  document.getElementById("letterContent").innerText = letter.content;
-  document.getElementById("overlay").style.display = "block";
-  document.getElementById("letterBox").style.display = "block";
-}
-
-function closeLetter() {
-  document.getElementById("overlay").style.display = "none";
-  document.getElementById("letterBox").style.display = "none";
-}
+  function nextLetter() {
+    if (currentLetter < letters.length - 1) {
+      currentLetter++;
+      showLetter(currentLetter + 1); // +1 because showLetter expects 1-based index
+    } else {
+      alert("You've reached the last letter.");
+    }
+  }
 </script>
-
-</body>
-</html>
-
-</body>
-</html>
